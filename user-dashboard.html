@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Your Advisory Guide</title>
+  <meta name="description" content="Browse and book consultants">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/user.css" rel="stylesheet">
+</head>
+
+<body class="user-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="user-dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="request-consultation.html">New Request</a></li>
+          <li><a href="login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1>Browse Consultants</h1>
+            <p>Search by specialty, experience or keywords and view profiles</p>
+          </div>
+          <a href="request-consultation.html" class="btn btn-request-consultation">
+            <i class="bi bi-plus-circle me-2"></i> New request 
+          </a>
+        </div>
+
+        <div class="user-filters" data-aos="fade-up">
+          <div class="row g-3 align-items-end">
+            <div class="col-md-4">
+              <label class="form-label small mb-1">Search</label>
+              <input type="text" id="searchKeywords" class="form-control" placeholder="Name, bio, keywords...">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label small mb-1">Specialty</label>
+              <select id="filterSpecialty" class="form-select">
+                <option value="">All specialties</option>
+                <option value="legal">Legal</option>
+                <option value="medical">Medical</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="educational">Educational</option>
+                <option value="psychological">Psychological</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label small mb-1">Experience</label>
+              <select id="filterExperience" class="form-select">
+                <option value="">Any</option>
+                <option value="1">1+ years</option>
+                <option value="3">3+ years</option>
+                <option value="5">5+ years</option>
+                <option value="10">10+ years</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <button type="button" id="btnSearch" class="btn btn-primary w-100" style="background: var(--primary-color); border-color: var(--primary-color);">Search</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="consultantsGrid" class="row g-4">
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="legal" data-experience="12" data-search="Dr. Ahmed Al-Rashid Legal commercial family law mediator">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Legal</span>
+                <h3 class="consultant-name">Dr. Ahmed Al-Rashid</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>12 years experience</p>
+                <p class="consultant-bio">Practicing lawyer with focus on commercial and family law. Certified mediator.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="medical" data-experience="8" data-search="Dr. Sara Mohammed Medical general practice health education">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Medical</span>
+                <h3 class="consultant-name">Dr. Sara Mohammed</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>8 years experience</p>
+                <p class="consultant-bio">General practice and health education. Available for non-urgent health guidance.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="real_estate" data-experience="15" data-search="Khalid Al-Otaibi Real Estate rent buy investment">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Real Estate</span>
+                <h3 class="consultant-name">Khalid Al-Otaibi</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>15 years experience</p>
+                <p class="consultant-bio">Licensed real estate consultant. Rent, buy, and investment advice across major cities.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="educational" data-experience="6" data-search="Nora Al-Harbi Educational academic advisor students parents">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Educational</span>
+                <h3 class="consultant-name">Nora Al-Harbi</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>6 years experience</p>
+                <p class="consultant-bio">Education specialist and academic advisor for students and parents.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="psychological" data-experience="10" data-search="Dr. Omar Farouk Psychological psychologist stress relationships">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Psychological</span>
+                <h3 class="consultant-name">Dr. Omar Farouk</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>10 years experience</p>
+                <p class="consultant-bio">Licensed psychologist. Support with stress, relationships, and personal development.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 consultant-card-wrap" data-aos="fade-up" data-specialty="legal" data-experience="5" data-search="Layla Hassan Legal corporate employment law">
+            <div class="consultant-card">
+              <div class="card-body">
+                <span class="consultant-specialty">Legal</span>
+                <h3 class="consultant-name">Layla Hassan</h3>
+                <p class="consultant-exp"><i class="bi bi-briefcase me-1"></i>5 years experience</p>
+                <p class="consultant-bio">Corporate and employment law. Drafting and dispute resolution.</p>
+                <a href="consultant-profile.html" class="btn btn-view-profile">View profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p id="noResults" class="text-center text-muted py-4 d-none">No consultants match your filters. Try different criteria.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
+            <span class="sitename">Your Advisory Guide</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Your Advisory Guide — Saudi Arabia</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
+            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="user-dashboard.html">Dashboard</a></li>
+            <li><a href="request-consultation.html">New Request</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Your Account</h4>
+          <ul>
+            <li><a href="login.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="assets/js/user.js"></script>
+  
+</body>
+
+</html>

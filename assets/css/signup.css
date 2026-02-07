@@ -1,0 +1,88 @@
+
+.signup-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 0 2rem;
+  background-color: var(--background-color);
+}
+    .signup-card {
+      background: var(--surface-color);
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(99, 110, 74, 0.12);
+      overflow: hidden;
+      border: 1px solid rgba(99, 110, 74, 0.1);
+    }
+    .signup-logo {
+      display: block;
+      max-width: 180px;
+      height: auto;
+      margin: 0 auto 1rem;
+    }
+    .signup-header {
+      text-align: center;
+      padding: 2rem 2rem 0.5rem;
+    }
+    .signup-header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 0.25rem;
+    }
+    .signup-header p {
+      color: var(--default-color);
+      font-size: 0.95rem;
+    }
+    .signup-body {
+      padding: 1.5rem 2rem 2rem;
+    }
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(99, 110, 74, 0.2);
+    }
+    .form-label {
+      font-weight: 500;
+      color: var(--heading-color);
+    }
+    .btn-signup {
+      background-color: var(--primary-color);
+      border: none;
+      color: var(--contrast-color);
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+    .btn-signup:hover {
+      background-color: #505a3b;
+      color: var(--contrast-color);
+      transform: translateY(-1px);
+    }
+    .signup-footer {
+      text-align: center;
+      padding: 1rem 2rem;
+      background: rgba(216, 217, 146, 0.2);
+      border-top: 1px solid rgba(99, 110, 74, 0.08);
+    }
+    .signup-footer a {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+    .signup-footer a:hover {
+      color: var(--accent-color);
+    }
+    .back-home {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      color: var(--primary-color);
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .back-home:hover {
+      color: var(--accent-color);
+    }
+  

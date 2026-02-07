@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Consultation - Your Advisory Guide</title>
+  <meta name="description" content="Submit a consultation request">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/user.css" rel="stylesheet">
+</head>
+
+<body class="user-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="user-dashboard.html" >Dashboard</a></li>
+          <li><a href="request-consultation.html" class="active">New Request</a></li>
+          <li><a href="login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="user-dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Request consultation</li>
+          </ol>
+        </nav>
+
+        <h1 class="h2 mb-2">Submit consultation request</h1>
+       
+
+        <div id="requestTypeBadge" class="request-type-badge general">General request — admin will assign a consultant</div>
+        <div id="requestTypeBadgeTargeted" class="request-type-badge targeted d-none">Targeted request</div>
+
+        <div class="request-form-card" data-aos="fade-up">
+          <form id="requestForm">
+            <input type="hidden" id="requestType" name="requestType" value="general">
+            <input type="hidden" id="consultantId" name="consultantId" value="">
+
+            <div id="rowGeneral" class="row">
+              <div class="col-lg-6 mb-3">
+                <label class="form-label">Request type</label>
+                <select id="selectRequestType" class="form-select">
+                  <option value="general">General (admin assigns consultant)</option>
+                  <option value="targeted">Targeted (choose consultant)</option>
+                </select>
+              </div>
+              <div id="rowConsultant" class="col-lg-6 mb-3 d-none">
+                <label class="form-label">Consultant</label>
+                <select id="selectConsultant" class="form-select" name="consultant_id">
+                  <option value="">Select consultant</option>
+                  <option value="1">Dr. Ahmed Al-Rashid (Legal)</option>
+                  <option value="2">Dr. Sara Mohammed (Medical)</option>
+                  <option value="3">Khalid Al-Otaibi (Real Estate)</option>
+                  <option value="4">Nora Al-Harbi (Educational)</option>
+                  <option value="5">Dr. Omar Farouk (Psychological)</option>
+                  <option value="6">Layla Hassan (Legal)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="description">Description <span class="text-danger">*</span></label>
+              <textarea id="description" name="description" class="form-control" rows="5" placeholder="Describe your consultation need..." required></textarea>
+              <div class="invalid-feedback">Please enter a description.</div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Attached files (documents or images)</label>
+              <input type="file" id="attachedFiles" name="attached_files" class="form-control" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif" multiple>
+              <small class="text-muted">Optional. PDF, Word, or images. Multiple files allowed.</small>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label" for="communicationType">Preferred communication type <span class="text-danger">*</span></label>
+              <select id="communicationType" name="communication_type" class="form-select" required>
+                <option value="">Select</option>
+                <option value="phone">Phone call</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="email">Email</option>
+              </select>
+              <div class="invalid-feedback">Please select preferred communication.</div>
+            </div>
+
+            <button type="submit" class="btn btn-submit-request">
+              <i class="bi bi-send me-2"></i> Submit request
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
+            <span class="sitename">Your Advisory Guide</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Your Advisory Guide — Saudi Arabia</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
+            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="user-dashboard.html">Dashboard</a></li>
+            <li><a href="request-consultation.html">New Request</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Your Account</h4>
+          <ul>
+            <li><a href="login.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="assets/js/request-consultation.js"></script>
+</body>
+
+</html>
