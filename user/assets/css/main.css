@@ -19,10 +19,10 @@
 
 /* Global Colors - Consultation platform palette */
 :root { 
-  --primary-color: #636E4A;
-  --secondary-color: #D8D992;
-  --accent-color: #D5B988;
-  --background-color: #EBF4F3;
+  --primary-color: #a6c0b3;
+  --secondary-color: #cfe2e0;
+  --accent-color: #718b87;
+  --background-color: #ebf4f3;
   --default-color: #444444; /* Text on light background */
   --heading-color: #2d3329; /* Dark olive for headings */
   --surface-color: #ffffff; /* Cards, boxes */
@@ -69,7 +69,7 @@ body {
 }
 
 a {
-  color:#EBF4F3;
+  color:#252525;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -251,7 +251,7 @@ h2,h4,h3{
     margin-right: 8px;
   }
   .navmenu a.btn-nav-signup:hover {
-    background: #505a3b;
+    background: #718b87;
     color: var(--contrast-color) !important;
   }
 
@@ -530,7 +530,7 @@ h2,h4,h3{
 }
 
 .footer .footer-links ul a {
-  color: color-mix(in srgb,#EBF4F3, transparent 30%);
+  color: color-mix(in srgb, #252525, transparent 30%);
   display: inline-block;
   line-height: 1;
 }
@@ -583,7 +583,7 @@ h2,h4,h3{
 }
 
 .footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: #718b87;
 }
 
 .footer .copyright {
@@ -659,7 +659,7 @@ h2,h4,h3{
 }
 
 .scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background-color: #718b87;
   color: var(--contrast-color);
 }
 
@@ -902,7 +902,7 @@ section,
 }
 
 .hero .btn-get-started:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: #718b87;
 }
 
 .hero .carousel-control-prev,
@@ -1086,7 +1086,7 @@ section,
 }
 
 .about .content .read-more:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: #718b87;
   padding-right: 19px;
 }
 
@@ -1221,8 +1221,8 @@ section,
 }
 
 .call-to-action .cta-btn:hover {
-  background: var(--accent-color);
-  border: 2px solid var(--accent-color);
+  background: #718b87;
+  border: 2px solid #718b87;
 }
 
 /*--------------------------------------------------------------
@@ -1623,7 +1623,7 @@ section,
 }
 
 .pricing .buy-btn:hover {
-  background-color: var(--accent-color);
+  background-color: #718b87;
   color: var(--contrast-color);
 }
 
@@ -1797,7 +1797,7 @@ section,
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: #718b87;
 }
 
 /*--------------------------------------------------------------
@@ -1879,7 +1879,7 @@ section,
 }
 
 .blog-posts .read-more a:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background: #718b87;
 }
 
 /*--------------------------------------------------------------
@@ -1915,7 +1915,7 @@ section,
 
 .blog-pagination li a.active,
 .blog-pagination li a:hover {
-  background: var(--accent-color);
+  background: #718b87;
   color: var(--contrast-color);
 }
 
@@ -2214,7 +2214,7 @@ section,
 
 .comment-form form .btn-primary:hover {
   color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+  background-color: #718b87;
 }
 
 /*--------------------------------------------------------------
@@ -2513,7 +2513,7 @@ section,
 }
 
 .tags-widget ul a:hover {
-  background: var(--accent-color);
+  background: #718b87;
   color: var(--contrast-color);
 }
 
@@ -2521,4 +2521,11 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+.footer-contact.pt-3 {
+  color:#252525
+}
+.container.copyright.text-center.mt-4 {
+  color:#252525
+
 }

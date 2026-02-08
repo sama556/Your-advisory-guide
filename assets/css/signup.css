@@ -55,7 +55,7 @@
       transition: background-color 0.2s, transform 0.2s;
     }
     .btn-signup:hover {
-      background-color: #505a3b;
+      background-color: #718b87;
       color: var(--contrast-color);
       transform: translateY(-1px);
     }

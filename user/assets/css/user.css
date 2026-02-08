@@ -90,7 +90,7 @@
   transition: background 0.2s;
 }
 .consultant-card .btn-view-profile:hover {
-  background: #505a3b;
+  background: #718b87;
   color: var(--contrast-color);
 }
 
@@ -130,7 +130,7 @@
   transition: background 0.2s;
 }
 .btn-request-consultation:hover {
-  background: #505a3b;
+  background: #718b87;
   color: var(--contrast-color);
 }
 
@@ -160,7 +160,7 @@
   border-radius: 8px;
 }
 .request-form-card .btn-submit-request:hover {
-  background: #505a3b;
+  background: #718b87;
   color: var(--contrast-color);
 }
 .request-type-badge {
