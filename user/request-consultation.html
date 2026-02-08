@@ -20,14 +20,15 @@
 <body class="user-page">
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="../index.html" class="logo d-flex align-items-center">
         <img src="assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
         <h1 class="sitename mb-0">Your Advisory Guide</h1>
       </a>
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="../index.html">Home</a></li>
-          <li><a href="user-dashboard.html" >Dashboard</a></li>
+          <li><a href="user-dashboard.html">Dashboard</a></li>
+          <li><a href="my-requests.html">My Requests</a></li>
           <li><a href="request-consultation.html" class="active">New Request</a></li>
           <li><a href="../login.html">Log Out</a></li>
         </ul>
@@ -69,14 +70,27 @@
                 <label class="form-label">Consultant</label>
                 <select id="selectConsultant" class="form-select" name="consultant_id">
                   <option value="">Select consultant</option>
-                  <option value="1">Dr. Ahmed Al-Rashid (Legal)</option>
-                  <option value="2">Dr. Sara Mohammed (Medical)</option>
-                  <option value="3">Khalid Al-Otaibi (Real Estate)</option>
-                  <option value="4">Nora Al-Harbi (Educational)</option>
-                  <option value="5">Dr. Omar Farouk (Psychological)</option>
-                  <option value="6">Layla Hassan (Legal)</option>
+                  <option value="1">Dr. Ahmed Al-Rashid </option>
+                  <option value="2">Dr. Sara Mohammed </option>
+                  <option value="3">Khalid Al-Otaibi </option>
+                  <option value="4">Nora Al-Harbi </option>
+                  <option value="5">Dr. Omar Farouk</option>
+                  <option value="6">Layla Hassan </option>
                 </select>
               </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="consultationType">Consultation type <span class="text-danger">*</span></label>
+              <select id="consultationType" name="consultation_type" class="form-select" required>
+                <option value="">Select type</option>
+                <option value="legal">Legal</option>
+                <option value="medical">Medical</option>
+                <option value="real_estate">Real Estate</option>
+                <option value="educational">Educational</option>
+                <option value="psychological">Psychological</option>
+              </select>
+              <div class="invalid-feedback">Please select a consultation type.</div>
             </div>
 
             <div class="mb-3">
@@ -115,7 +129,7 @@
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
+          <a href="../index.html" class="logo d-flex align-items-center">
             <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
             <span class="sitename">Your Advisory Guide</span>
           </a>
@@ -128,15 +142,16 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="user-dashboard.html">Dashboard</a></li>
+            <li><a href="my-requests.html">My Requests</a></li>
             <li><a href="request-consultation.html">New Request</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Your Account</h4>
           <ul>
-            <li><a href="login.html">Log Out</a></li>
+            <li><a href="../login.html">Log Out</a></li>
           </ul>
         </div>
       </div>

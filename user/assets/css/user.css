@@ -179,3 +179,103 @@
   background: rgba(213, 185, 136, 0.3);
   color: var(--heading-color);
 }
+
+/* My requests page – table redesign */
+.requests-wrapper {
+  margin-bottom: 1.5rem;
+}
+.requests-table-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
+  border: 1px solid rgba(99, 110, 74, 0.12);
+}
+.requests-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  color: var(--default-color);
+}
+.requests-table thead {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+}
+.requests-table thead th {
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem 1rem;
+  white-space: nowrap;
+  border: none;
+}
+.requests-table tbody tr {
+  border-bottom: 1px solid rgba(99, 110, 74, 0.1);
+  transition: background 0.2s;
+}
+.requests-table tbody tr:hover {
+  background: rgba(216, 217, 146, 0.15);
+}
+.requests-table tbody tr:last-child {
+  border-bottom: none;
+}
+.requests-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+.requests-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+/* Request badges */
+.req-badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.req-badge-targeted {
+  background: rgba(99, 110, 74, 0.2);
+  color: var(--primary-color);
+}
+.req-badge-general {
+  background: rgba(213, 185, 136, 0.35);
+  color: var(--heading-color);
+}
+.req-badge-specialty {
+  background: rgba(216, 217, 146, 0.4);
+  color: var(--heading-color);
+}
+.req-comm {
+  font-size: 0.85rem;
+  color: var(--default-color);
+}
+.req-status {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.req-status-pending {
+  background: rgba(213, 185, 136, 0.35);
+  color: #8b6914;
+}
+.req-status-assigned {
+  background: rgba(99, 110, 74, 0.2);
+  color: var(--primary-color);
+}
+.req-status-completed {
+  background: rgba(45, 90, 45, 0.15);
+  color: #2d5a2d;
+}
+@media (max-width: 991px) {
+  .requests-table thead th,
+  .requests-table tbody td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
