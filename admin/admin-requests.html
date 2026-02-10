@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Requests - Your Advisory Guide</title>
+  <meta name="description" content="Admin page to manage consultation requests">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/admin.css" rel="stylesheet">
+</head>
+
+<body class="user-page admin-requests-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="admin-dashboard.html">Admin Home</a></li>
+          <li><a href="admin-consultants.html">Manage Consultants</a></li>
+          <li><a href="admin-requests.html" class="active">Manage Requests</a></li>
+          <li><a href="../login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="admin-dashboard.html">Admin Home</a></li>
+            <li class="breadcrumb-item active">Manage requests</li>
+          </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h2 mb-1">Manage consultation requests</h1>
+            <p class="mb-0 text-muted">Assign general requests to consultants and monitor status.</p>
+          </div>
+        </div>
+
+        <div class="requests-wrapper" data-aos="fade-up">
+          <div class="requests-table-card">
+            <div class="p-3 border-bottom d-flex flex-wrap gap-3 align-items-end justify-content-between">
+              <div class="row g-3 flex-grow-1">
+                <div class="col-md-4">
+                  <label class="form-label small mb-1">Search</label>
+                  <input type="text" class="form-control" placeholder="User, request ID, keywords..." disabled>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small mb-1">Type</label>
+                  <select class="form-select" disabled>
+                    <option value="">All</option>
+                    <option value="general">General</option>
+                    <option value="targeted">Targeted</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small mb-1">Status</label>
+                  <select class="form-select" disabled>
+                    <option value="">All</option>
+                    <option value="unassigned">Unassigned</option>
+                    <option value="assigned">Assigned</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+              </div>
+             
+            </div>
+
+            <div class="table-responsive">
+              <table class="requests-table mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Consultation type</th>
+                 
+                    <th>Status</th>
+                    <th>Assigned consultant</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-request-id="R-148">
+                    <td>R-148</td>
+                    <td>user_ahmed</td>
+                    <td><span class="req-badge req-badge-general">General</span></td>
+                  
+                    <td><span class="req-status req-status-pending">Unassigned</span></td>
+                    <td class="assigned-cell">—</td>
+                    <td>05 Feb 2026</td>
+                    <td>
+                      <div class="d-flex flex-column gap-1">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          data-action="view-details"
+                          data-request-id="R-148"
+                          data-user="user_ahmed"
+                          data-type="General"
+                          data-status="Unassigned"
+                          data-assigned="—"
+                          data-created="05 Feb 2026"
+                          data-summary="Family issue and inheritance clarification."
+                          data-files="Family-summary.pdf, Family-notes.png"
+                        >View details</button>
+                        <button
+                          type="button"
+                          class="btn btn-request-consultation btn-sm"
+                          data-action="open-assign"
+                          data-request-id="R-148"
+                          data-user="user_ahmed"
+                          data-type="General"
+                        >Assign to consultant</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-request-id="R-147" class="assigned-row">
+                    <td>R-147</td>
+                    <td>user_sara</td>
+                    <td><span class="req-badge req-badge-specialty">Legal</span></td>
+                 
+                    <td><span class="req-status req-status-assigned">Assigned</span></td>
+                    <td class="assigned-cell">Dr. Ahmed Al-Rashid</td>
+                    <td>04 Feb 2026</td>
+                    <td>
+                      <div class="d-flex flex-column gap-1">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          data-action="view-details"
+                          data-request-id="R-147"
+                          data-user="user_sara"
+                          data-type="Legal"
+                          data-status="Assigned"
+                          data-assigned="Dr. Ahmed Al-Rashid"
+                          data-created="04 Feb 2026"
+                          data-summary="Employment contract review before signing."
+                          data-files="Contract-draft.docx"
+                        >View details</button>
+                        <button type="button" class="btn btn-outline-success btn-sm" data-action="mark-completed">Mark completed</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-request-id="R-146" class="completed-row">
+                    <td>R-146</td>
+                    <td>user_mohammed</td>
+                    <td><span class="req-badge req-badge-specialty">Educational</span></td>
+                 
+                    <td><span class="req-status req-status-completed">Completed</span></td>
+                    <td class="assigned-cell">Nora Al-Harbi</td>
+                    <td>02 Feb 2026</td>
+                    <td>
+                      <div class="d-flex flex-column gap-1">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          data-action="view-details"
+                          data-request-id="R-146"
+                          data-user="user_mohammed"
+                          data-type="Educational"
+                          data-status="Completed"
+                          data-assigned="Nora Al-Harbi"
+                          data-created="02 Feb 2026"
+                          data-summary="University major selection advice."
+                          data-files="Grades-report.pdf"
+                        >View details</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm" data-action="reopen">Re-open</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr data-request-id="R-145" class="unassigned-row">
+                    <td>R-145</td>
+                    <td>user_layla</td>
+                    <td><span class="req-badge req-badge-general">General</span></td>
+                  
+                    <td><span class="req-status req-status-pending">Unassigned</span></td>
+                    <td class="assigned-cell">—</td>
+                    <td>01 Feb 2026</td>
+                    <td>
+                      <div class="d-flex flex-column gap-1">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary btn-sm"
+                          data-action="view-details"
+                          data-request-id="R-145"
+                          data-user="user_layla"
+                          data-type="General"
+                          data-status="Unassigned"
+                          data-assigned="—"
+                          data-created="01 Feb 2026"
+                          data-summary="Choosing between renting or buying apartment."
+                          data-files="Salary-slip.pdf, Rent-offers.pdf"
+                        >View details</button>
+                        <button
+                          type="button"
+                          class="btn btn-request-consultation btn-sm"
+                          data-action="open-assign"
+                          data-request-id="R-145"
+                          data-user="user_layla"
+                          data-type="General"
+                        >Assign to consultant</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Request details modal -->
+  <div class="modal fade" id="requestDetailsModal" tabindex="-1" aria-labelledby="requestDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content request-modal">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title h5 mb-1" id="requestDetailsModalLabel">Request details</h2>
+            <p class="mb-0 small text-muted">View information about this consultation request.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <dl class="row mb-0">
+                <dt class="col-sm-4">Request ID</dt>
+                <dd class="col-sm-8" id="modalRequestId">R-000</dd>
+
+                <dt class="col-sm-4">User</dt>
+                <dd class="col-sm-8" id="modalRequestUser">username</dd>
+
+                <dt class="col-sm-4">Type</dt>
+                <dd class="col-sm-8" id="modalRequestType">General</dd>
+
+                <dt class="col-sm-4">Status</dt>
+                <dd class="col-sm-8" id="modalRequestStatus">Unassigned</dd>
+
+                <dt class="col-sm-4">Assigned to</dt>
+                <dd class="col-sm-8" id="modalRequestAssigned">—</dd>
+
+                <dt class="col-sm-4">Created</dt>
+                <dd class="col-sm-8" id="modalRequestCreated">01 Jan 2026</dd>
+              </dl>
+            </div>
+            <div class="col-md-6">
+              <h3 class="h6">Summary</h3>
+              <p class="small mb-3" id="modalRequestSummary">
+                Short description of the request will appear here.
+              </p>
+              <h3 class="h6">Attached files</h3>
+              <ul class="small mb-0" id="modalRequestFiles">
+                <li>No files uploaded.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign request modal -->
+  <div class="modal fade" id="assignRequestModal" tabindex="-1" aria-labelledby="assignRequestModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content request-modal">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title h5 mb-1" id="assignRequestModalLabel">Assign request</h2>
+            <p class="mb-0 small text-muted">Select an approved consultant to handle this request.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3 small text-muted">
+            <span id="assignRequestMeta">Request R-000 • user</span>
+          </div>
+          <div class="mb-3">
+            <label for="assignConsultantSelect" class="form-label">Consultant</label>
+            <select id="assignConsultantSelect" class="form-select">
+              <option value="">Select consultant...</option>
+              <option>Dr. Ahmed Al-Rashid (Legal)</option>
+              <option>Dr. Sara Mohammed (Medical)</option>
+              <option>Khalid Al-Otaibi (Real Estate)</option>
+              <option>Nora Al-Harbi (Educational)</option>
+              <option>Dr. Omar Farouk (Psychological)</option>
+              <option>Other approved consultant...</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-request-consultation" id="assignSaveBtn">Save assignment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="../index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
+            <span class="sitename">Your Advisory Guide</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Your Advisory Guide — Saudi Arabia</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
+            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Admin</h4>
+          <ul>
+            <li><a href="admin-dashboard.html">Admin Home</a></li>
+            <li><a href="admin-consultants.html">Manage Consultants</a></li>
+            <li><a href="admin-requests.html">Manage Requests</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Your Account</h4>
+          <ul>
+            <li><a href="../login.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/admin-requests.js"></script>
+</body>
+
+</html>
+

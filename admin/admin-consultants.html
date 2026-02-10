@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Consultants - Your Advisory Guide</title>
+  <meta name="description" content="Admin page to manage consultants">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/admin.css" rel="stylesheet">
+</head>
+
+<body class="user-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="admin-dashboard.html">Admin Home</a></li>
+          <li><a href="admin-consultants.html" class="active">Manage Consultants</a></li>
+          <li><a href="admin-requests.html">Manage Requests</a></li>
+          <li><a href="../login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="admin-dashboard.html">Admin Home</a></li>
+            <li class="breadcrumb-item active">Manage consultants</li>
+          </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h2 mb-1">Manage consultants</h1>
+            <p class="mb-0 text-muted">Review, approve or block consultants registered on the platform.</p>
+          </div>
+        </div>
+
+        <div class="requests-wrapper" data-aos="fade-up">
+          <div class="requests-table-card">
+            <div class="p-3 border-bottom d-flex flex-wrap gap-3 align-items-end justify-content-between">
+              <div class="row g-3 flex-grow-1">
+                <div class="col-md-4">
+                  <label class="form-label small mb-1">Search</label>
+                  <input type="text" class="form-control" placeholder="Name, email, phone..." disabled>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small mb-1">Status</label>
+                  <select class="form-select" disabled>
+                    <option value="">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Accepted</option>
+                    <option value="blocked">Blocked</option>
+                  </select>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label small mb-1">Sort by</label>
+                  <select class="form-select" disabled>
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
+                    <option value="experience">Experience</option>
+                  </select>
+                </div>
+              </div>
+              
+            </div>
+
+            <div class="table-responsive">
+              <table class="requests-table mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Experience</th>
+                    <th>Registered</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>C-001</td>
+                    <td>consult_ahmed</td>
+                    <td>ahmed@example.com</td>
+                    <td>+966 50 000 0001</td>
+                    <td>12 years</td>
+                    <td>05 Feb 2026</td>
+                    <td><span class="req-status req-status-assigned">Accepted</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          data-action="view-profile"
+                          data-id="C-001"
+                          data-username="consult_ahmed"
+                          data-email="ahmed@example.com"
+                          data-phone="+966 50 000 0001"
+                          data-experience-years="12"
+                          data-status="Accepted"
+                          data-bio="Senior legal consultant focused on commercial and family law. Handles contracts, disputes and mediation for individuals and small businesses."
+                     
+                        >View profile</button>
+                        <button type="button" class="btn btn-outline-danger" data-action="block">Block</button>
+                        <button type="button" class="btn btn-outline-success" data-action="unblock">Unblock</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>C-016</td>
+                    <td>consult_huda</td>
+                    <td>huda@example.com</td>
+                    <td>+966 55 000 0016</td>
+                    <td>7 years</td>
+                    <td>03 Feb 2026</td>
+                    <td><span class="req-status req-status-pending">Pending</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          data-action="view-profile"
+                          data-id="C-016"
+                          data-username="consult_huda"
+                          data-email="huda@example.com"
+                          data-phone="+966 55 000 0016"
+                          data-experience-years="7"
+                          data-status="Pending"
+                          data-bio="Medical consultant with experience in primary care and patient education. Supports users with non‑urgent health questions."
+                         
+                        >View profile</button>
+                        <button type="button" class="btn btn-outline-success" data-action="approve">Accept</button>
+                        <button type="button" class="btn btn-outline-danger" data-action="reject">Reject</button>
+                        <!-- Block / Unblock are available after acceptance -->
+                        <button type="button" class="btn btn-outline-danger" data-action="block" style="display: none;">Block</button>
+                        <button type="button" class="btn btn-outline-success" data-action="unblock" style="display: none;">Unblock</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>C-010</td>
+                    <td>consult_fahad</td>
+                    <td>fahad@example.com</td>
+                    <td>+966 53 000 0010</td>
+                    <td>10 years</td>
+                    <td>22 Jan 2026</td>
+                    <td><span class="req-status req-status-completed">Blocked</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          data-action="view-profile"
+                          data-id="C-010"
+                          data-username="consult_fahad"
+                          data-email="fahad@example.com"
+                          data-phone="+966 53 000 0010"
+                          data-experience-years="10"
+                          data-status="Blocked"
+                          data-bio="Real estate consultant helping users compare rent vs buy options and plan long‑term property investments."
+                        
+                        >View profile</button>
+                        <button type="button" class="btn btn-outline-danger" data-action="block">Block</button>
+                        <button type="button" class="btn btn-outline-success" data-action="unblock">Unblock</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>C-008</td>
+                    <td>consult_nora</td>
+                    <td>nora@example.com</td>
+                    <td>+966 54 000 0008</td>
+                    <td>5 years</td>
+                    <td>15 Jan 2026</td>
+                    <td><span class="req-status req-status-assigned">Accepted</span></td>
+                    <td>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary"
+                          data-action="view-profile"
+                          data-id="C-008"
+                          data-username="consult_nora"
+                          data-email="nora@example.com"
+                          data-phone="+966 54 000 0008"
+                          data-experience-years="5"
+                          data-status="Accepted"
+                          data-bio="Educational advisor supporting students and parents with school choices, study plans and scholarships."
+                          data-password="Nora@2026"
+                        >View profile</button>
+                        <button type="button" class="btn btn-outline-danger" data-action="block">Block</button>
+                        <button type="button" class="btn btn-outline-success" data-action="unblock">Unblock</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Consultant profile modal -->
+  <div class="modal fade" id="consultantProfileModal" tabindex="-1" aria-labelledby="consultantProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content consultant-modal">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title h5 mb-1" id="consultantProfileModalLabel">Consultant profile</h2>
+            <p class="mb-0 small text-muted">View a summary of the consultant account.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <dl class="row mb-0">
+                <dt class="col-sm-5">Consultant ID</dt>
+                <dd class="col-sm-7" id="modalConsultantId">C-000</dd>
+
+                <dt class="col-sm-5">Username</dt>
+                <dd class="col-sm-7" id="modalConsultantUsername">username</dd>
+
+                <dt class="col-sm-5">Email</dt>
+                <dd class="col-sm-7" id="modalConsultantEmail">email@example.com</dd>
+
+                <dt class="col-sm-5">Phone</dt>
+                <dd class="col-sm-7" id="modalConsultantPhone">+966 00 000 0000</dd>
+
+                <dt class="col-sm-5">Experience</dt>
+                <dd class="col-sm-7" id="modalConsultantExperience">0 years</dd>
+
+                <dt class="col-sm-5">Current status</dt>
+                <dd class="col-sm-7" id="modalConsultantStatus">Pending</dd>
+               
+            </div>
+            <div class="col-md-12">
+              <h3>Bio</h3>
+              <p class="mb-0 small" id="modalConsultantBio">
+                Short description about the consultant will appear here.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="../index.html" class="logo d-flex align-items-center">
+            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
+            <span class="sitename">Your Advisory Guide</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Your Advisory Guide — Saudi Arabia</p>
+            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
+            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Admin</h4>
+          <ul>
+            <li><a href="admin-dashboard.html">Admin Home</a></li>
+            <li><a href="admin-consultants.html">Manage Consultants</a></li>
+            <li><a href="admin-requests.html">Manage Requests</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Your Account</h4>
+          <ul>
+            <li><a href="../login.html">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/admin-consultants.js"></script>
+</body>
+
+</html>
+

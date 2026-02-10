@@ -1,0 +1,391 @@
+/* User dashboard & profile */
+.user-page .page-head {
+  padding: 100px 0 2rem;
+  background: var(--background-color);
+}
+.user-page .page-head h1 {
+  color: var(--heading-color);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.user-page .page-head p {
+  color: var(--default-color);
+  margin-bottom: 0;
+}
+
+/* Search & filters */
+.user-filters {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(99, 110, 74, 0.08);
+  border: 1px solid rgba(99, 110, 74, 0.1);
+}
+.user-filters .form-control:focus,
+.user-filters .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(99, 110, 74, 0.2);
+}
+
+/* Consultant cards */
+.consultant-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
+  border: 1px solid rgba(99, 110, 74, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.consultant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(99, 110, 74, 0.15);
+}
+.consultant-card .card-body {
+  flex: 1;
+  padding: 1.25rem;
+}
+.consultant-card .consultant-specialty {
+  display: inline-block;
+  background: rgba(99, 110, 74, 0.15);
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.consultant-card .consultant-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 0.35rem;
+}
+.consultant-card .consultant-exp {
+  font-size: 0.85rem;
+  color: var(--default-color);
+  margin-bottom: 0.5rem;
+}
+.consultant-card .consultant-bio {
+  font-size: 0.9rem;
+  color: var(--default-color);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.consultant-card .btn-view-profile {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  border: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.consultant-card .btn-view-profile:hover {
+  background: #718b87;
+  color: var(--contrast-color);
+}
+
+/* Consultant profile page */
+.profile-section {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(99, 110, 74, 0.08);
+  border: 1px solid rgba(99, 110, 74, 0.1);
+}
+.profile-section h3 {
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+.profile-comm-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(216, 217, 146, 0.3);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  margin: 0.25rem 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+.btn-request-consultation {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.btn-request-consultation:hover {
+  background: #718b87;
+  color: var(--contrast-color);
+}
+
+/* Request consultation form */
+.request-form-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
+  border: 1px solid rgba(99, 110, 74, 0.1);
+}
+.request-form-card .form-label {
+  font-weight: 500;
+  color: var(--heading-color);
+}
+.request-form-card .form-control:focus,
+.request-form-card .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(99, 110, 74, 0.2);
+}
+.request-form-card .btn-submit-request {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+}
+.request-form-card .btn-submit-request:hover {
+  background: #718b87;
+  color: var(--contrast-color);
+}
+.request-type-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.request-type-badge.targeted {
+  background: rgba(99, 110, 74, 0.2);
+  color: var(--primary-color);
+}
+.request-type-badge.general {
+  background: rgba(213, 185, 136, 0.3);
+  color: var(--heading-color);
+}
+
+/* My requests page – table redesign */
+.requests-wrapper {
+  margin-bottom: 1.5rem;
+}
+.requests-table-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
+  border: 1px solid rgba(99, 110, 74, 0.12);
+}
+.requests-table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  color: var(--default-color);
+}
+.requests-table thead {
+  background: var(--primary-color);
+  color: var(--contrast-color);
+}
+.requests-table thead th {
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem 1rem;
+  white-space: nowrap;
+  border: none;
+}
+.requests-table tbody tr {
+  border-bottom: 1px solid rgba(99, 110, 74, 0.1);
+  transition: background 0.2s;
+}
+.requests-table tbody tr:hover {
+  background: rgba(216, 217, 146, 0.15);
+}
+.requests-table tbody tr:last-child {
+  border-bottom: none;
+}
+.requests-table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+.requests-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+/* Request badges */
+.req-badge {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.req-badge-targeted {
+  background: rgba(99, 110, 74, 0.2);
+  color: var(--primary-color);
+}
+.req-badge-general {
+  background: rgba(213, 185, 136, 0.35);
+  color: var(--heading-color);
+}
+.req-badge-specialty {
+  background: rgba(216, 217, 146, 0.4);
+  color: var(--heading-color);
+}
+.req-comm {
+  font-size: 0.85rem;
+  color: var(--default-color);
+}
+.req-status {
+  display: inline-block;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.req-status-pending {
+  background: rgba(213, 185, 136, 0.35);
+  color: #8b6914;
+}
+.req-status-assigned {
+  background: rgba(99, 110, 74, 0.2);
+  color: var(--primary-color);
+}
+.req-status-completed {
+  background: rgba(45, 90, 45, 0.15);
+  color: #2d5a2d;
+}
+
+/* Admin consultant profile modal */
+.consultant-modal {
+  background: var(--surface-color);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 110, 74, 0.18);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+.consultant-modal .modal-header {
+  border-bottom: 1px solid rgba(99, 110, 74, 0.15);
+  padding: 1.1rem 1.5rem;
+}
+.consultant-modal .modal-title {
+  color: var(--heading-color);
+}
+.consultant-modal .modal-body {
+  padding: 1.5rem;
+}
+.consultant-modal dl.row dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--default-color);
+}
+.consultant-modal dl.row dd {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+.consultant-modal h6,
+.consultant-modal .h6 {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.consultant-modal #modalConsultantBio {
+  line-height: 1.6;
+  color: var(--default-color);
+}
+.consultant-modal .modal-footer {
+  border-top: 1px solid rgba(99, 110, 74, 0.15);
+  padding: 0.9rem 1.5rem;
+}
+
+/* Admin requests tweaks */
+.admin-requests-page .requests-table tbody tr.unassigned-row {
+  background: rgba(216, 217, 146, 0.08);
+}
+.admin-requests-page .requests-table tbody tr.assigned-row {
+  background: rgba(99, 110, 74, 0.04);
+}
+.admin-requests-page .requests-table tbody tr.completed-row {
+  background: rgba(45, 90, 45, 0.04);
+}
+.admin-requests-page .requests-table tbody tr:hover {
+  background: rgba(216, 217, 146, 0.18);
+}
+.admin-requests-page .requests-table td.summary-cell {
+  max-width: 320px;
+  white-space: normal;
+}
+.admin-requests-page .requests-table td.assigned-cell {
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+/* Admin request details modal */
+.request-modal {
+  background: var(--surface-color);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 110, 74, 0.18);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+.request-modal .modal-header {
+  border-bottom: 1px solid rgba(99, 110, 74, 0.15);
+  padding: 1.1rem 1.5rem;
+}
+.request-modal .modal-title {
+  color: var(--heading-color);
+}
+.request-modal .modal-body {
+  padding: 1.5rem;
+}
+.request-modal dl.row dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--default-color);
+}
+.request-modal dl.row dd {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+.request-modal h6,
+.request-modal .h6 {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.request-modal #modalRequestSummary {
+  line-height: 1.6;
+  color: var(--default-color);
+}
+.request-modal #modalRequestFiles li {
+  margin-bottom: 0.15rem;
+}
+.request-modal .modal-footer {
+  border-top: 1px solid rgba(99, 110, 74, 0.15);
+  padding: 0.9rem 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .requests-table thead th,
+  .requests-table tbody td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+  }
+}
