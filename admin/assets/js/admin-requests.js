@@ -55,12 +55,17 @@
     var modalDelayEl = document.getElementById("modalRequestDelayCount");
     var modalSummaryEl = document.getElementById("modalRequestSummary");
     var modalFilesEl = document.getElementById("modalRequestFiles");
+    var detailsAssignContainer = document.getElementById("detailsAssignContainer");
+    var detailsAssignSelect = document.getElementById("detailsAssignSelect");
+    var detailsAssignBtn = document.getElementById("detailsAssignBtn");
+    var currentDetailsRow = null;
 
     document.querySelectorAll('[data-action="view-details"]').forEach(function (btn) {
       btn.addEventListener("click", function () {
         if (!detailsModal) return;
         var d = this.dataset;
         if (!d) return;
+        currentDetailsRow = this.closest("tr");
 
         if (modalIdEl) modalIdEl.textContent = d.requestId || "";
         if (modalUserEl) modalUserEl.textContent = d.user || "";
@@ -90,81 +95,66 @@
           }
         }
 
+        // Show inline assign controls only for unassigned requests
+        var isUnassigned = (d.status || "").toLowerCase() === "unassigned";
+        if (detailsAssignContainer && detailsAssignSelect) {
+          if (isUnassigned) {
+            detailsAssignContainer.style.display = "block";
+            detailsAssignSelect.value = "";
+          } else {
+            detailsAssignContainer.style.display = "none";
+          }
+        }
+
         detailsModal.show();
       });
     });
 
-    // Assign unassigned general requests via modal
-    var assignModalEl = document.getElementById("assignRequestModal");
-    var assignModal = null;
-    var assignMetaEl = document.getElementById("assignRequestMeta");
-    var assignSelectEl = document.getElementById("assignConsultantSelect");
-    var assignSaveBtn = document.getElementById("assignSaveBtn");
-    var assignTypeEl = document.getElementById("assignRequestType");
-    var assignSendingEl = document.getElementById("assignRequestSending");
-    var assignCommEl = document.getElementById("assignRequestComm");
-    var assignDelayEl = document.getElementById("assignRequestDelay");
-    var assignSummaryEl = document.getElementById("assignRequestSummary");
-    var currentAssignRow = null;
-
-    if (assignModalEl && typeof bootstrap !== "undefined") {
-      assignModal = new bootstrap.Modal(assignModalEl);
-    }
-
-    document
-      .querySelectorAll('[data-action="open-assign"]')
-      .forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          if (!assignModal || !assignSelectEl) return;
-          currentAssignRow = this.closest("tr");
-          var d = this.dataset || {};
-          var id = d.requestId || getRequestId(currentAssignRow);
-          var user = d.user || "";
-
-          if (assignMetaEl) {
-            assignMetaEl.textContent = "Request " + id + " • " + user;
-          }
-
-          if (assignTypeEl) assignTypeEl.textContent = d.type || "";
-          if (assignSendingEl) assignSendingEl.textContent = d.sendingDate || "";
-          if (assignCommEl) assignCommEl.textContent = d.communication || "";
-          if (assignDelayEl) assignDelayEl.textContent = d.delayCount || "0";
-          if (assignSummaryEl) assignSummaryEl.textContent = d.summary || "";
-          assignSelectEl.value = "";
-          assignModal.show();
-        });
-      });
-
-    if (assignSaveBtn && assignSelectEl) {
-      assignSaveBtn.addEventListener("click", function () {
-        if (!currentAssignRow) return;
-        var selectedIndex = assignSelectEl.selectedIndex;
+    // Inline assign from details modal (for unassigned requests)
+    if (detailsAssignBtn && detailsAssignSelect) {
+      detailsAssignBtn.addEventListener("click", function () {
+        if (!currentDetailsRow) return;
+        var selectedIndex = detailsAssignSelect.selectedIndex;
         if (selectedIndex <= 0) {
           showToast("Please select a consultant before saving.", "error");
           return;
         }
-        var consultantLabel = assignSelectEl.options[selectedIndex].text;
-        var assignedCell = currentAssignRow.querySelector(".assigned-cell");
+        var consultantLabel = detailsAssignSelect.options[selectedIndex].text;
+
+        // Update assigned consultant cell in table
+        var assignedCell = currentDetailsRow.querySelector(".assigned-cell");
         if (assignedCell) {
           assignedCell.textContent = consultantLabel;
         }
 
-        updateRequestStatus(currentAssignRow, "Assigned", "req-status-assigned");
+        // Update status badge in table
+        updateRequestStatus(currentDetailsRow, "Assigned", "req-status-assigned");
 
-        var id = getRequestId(currentAssignRow);
+        // Update data-* on the view-details button so next open shows correct info
+        var detailsBtn = currentDetailsRow.querySelector('[data-action="view-details"]');
+        if (detailsBtn) {
+          detailsBtn.dataset.assigned = consultantLabel;
+          detailsBtn.dataset.status = "Assigned";
+          // Set assignment date to today in a simple format
+          var today = new Date();
+          var dateStr = today.toLocaleDateString("en-SA", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          });
+          detailsBtn.dataset.assignmentDate = dateStr;
+          if (modalAssignmentEl) {
+            modalAssignmentEl.textContent = dateStr;
+          }
+        }
+
+        var id = getRequestId(currentDetailsRow);
         showToast("Request " + id + " assigned to " + consultantLabel + ".", "success");
 
-        // Disable the assign button for this row
-        var assignBtn = currentAssignRow.querySelector('[data-action="open-assign"]');
-        if (assignBtn) {
-          assignBtn.disabled = true;
-          assignBtn.textContent = "Assigned";
+        // Hide inline assign controls after assignment
+        if (detailsAssignContainer) {
+          detailsAssignContainer.style.display = "none";
         }
-
-        if (assignModal) {
-          assignModal.hide();
-        }
-        currentAssignRow = null;
       });
     }
 

@@ -131,21 +131,6 @@
                           data-summary="Family issue and inheritance clarification."
                           data-files="Family-summary.pdf, Family-notes.png"
                         >View details</button>
-                        <button
-                          type="button"
-                          class="btn btn-request-consultation btn-sm"
-                          data-action="open-assign"
-                          data-request-id="148"
-                          data-user="user_ahmed"
-                          data-type="General"
-                          data-status="Unassigned"
-                          data-sending-date="05 Feb 2026"
-                          data-assignment-date="—"
-                          data-communication="Phone"
-                          data-delay-count="0"
-                          data-summary="Family issue and inheritance clarification."
-                          data-files="Family-summary.pdf, Family-notes.png"
-                        >Assign to consultant</button>
                       </div>
                     </td>
                   </tr>
@@ -235,21 +220,6 @@
                           data-summary="Choosing between renting or buying apartment."
                           data-files="Salary-slip.pdf, Rent-offers.pdf"
                         >View details</button>
-                        <button
-                          type="button"
-                          class="btn btn-request-consultation btn-sm"
-                          data-action="open-assign"
-                          data-request-id="145"
-                          data-user="user_layla"
-                          data-type="General"
-                          data-status="Unassigned"
-                          data-sending-date="01 Feb 2026"
-                          data-assignment-date="—"
-                          data-communication="WhatsApp"
-                          data-delay-count="0"
-                          data-summary="Choosing between renting or buying apartment."
-                          data-files="Salary-slip.pdf, Rent-offers.pdf"
-                        >Assign to consultant</button>
                       </div>
                     </td>
                   </tr>
@@ -314,54 +284,30 @@
               <ul class="small mb-0" id="modalRequestFiles">
                 <li>No files uploaded.</li>
               </ul>
+
+              <div class="mt-4" id="detailsAssignContainer" style="display: none;">
+                <h3 class="h6 mb-2">Assign to consultant</h3>
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                  <select id="detailsAssignSelect" class="form-select form-select-sm" style="min-width: 220px;">
+                    <option value="">Select consultant...</option>
+                    <option>Dr. Ahmed Al-Rashid (Legal)</option>
+                    <option>Dr. Sara Mohammed (Medical)</option>
+                    <option>Khalid Al-Otaibi (Real Estate)</option>
+                    <option>Nora Al-Harbi (Educational)</option>
+                    <option>Dr. Omar Farouk (Psychological)</option>
+                    <option>Other approved consultant...</option>
+                  </select>
+                  <button type="button" class="btn btn-request-consultation btn-sm" id="detailsAssignBtn">
+                    Save assignment
+                  </button>
+                </div>
+                
+              </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Assign request modal -->
-  <div class="modal fade" id="assignRequestModal" tabindex="-1" aria-labelledby="assignRequestModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content request-modal">
-        <div class="modal-header">
-          <div>
-            <h2 class="modal-title h5 mb-1" id="assignRequestModalLabel">Assign request</h2>
-            <p class="mb-0 small text-muted">Select an approved consultant to handle this request.</p>
-          </div>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="mb-3 small text-muted">
-            <span id="assignRequestMeta">Request 000 • user</span>
-          </div>
-          <div class="assign-meta mb-3 small">
-            <div><strong>Type:</strong> <span id="assignRequestType">General</span></div>
-            <div><strong>Sending date:</strong> <span id="assignRequestSending">01 Jan 2026</span></div>
-            <div><strong>Communication:</strong> <span id="assignRequestComm">Phone</span></div>
-            <div><strong>Delay count:</strong> <span id="assignRequestDelay">0</span></div>
-            <div class="mt-2"><strong>Summary:</strong> <span id="assignRequestSummary">Short summary here.</span></div>
-          </div>
-          <div class="mb-3">
-            <label for="assignConsultantSelect" class="form-label">Consultant</label>
-            <select id="assignConsultantSelect" class="form-select">
-              <option value="">Select consultant...</option>
-              <option>Dr. Ahmed Al-Rashid (Legal)</option>
-              <option>Dr. Sara Mohammed (Medical)</option>
-              <option>Khalid Al-Otaibi (Real Estate)</option>
-              <option>Nora Al-Harbi (Educational)</option>
-              <option>Dr. Omar Farouk (Psychological)</option>
-              <option>Other approved consultant...</option>
-            </select>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-request-consultation" id="assignSaveBtn">Save assignment</button>
         </div>
       </div>
     </div>
