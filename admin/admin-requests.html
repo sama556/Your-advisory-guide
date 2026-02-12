@@ -60,23 +60,30 @@
               <div class="row g-3 flex-grow-1">
                 <div class="col-md-4">
                   <label class="form-label small mb-1">Search</label>
-                  <input type="text" class="form-control" placeholder="User, request ID, keywords..." disabled>
+                  <input id="requestSearch" type="text" class="form-control" placeholder="User, request ID, keywords...">
                 </div>
                 <div class="col-md-3">
                   <label class="form-label small mb-1">Type</label>
-                  <select class="form-select" disabled>
+                  <select id="requestTypeFilter" class="form-select">
                     <option value="">All</option>
                     <option value="general">General</option>
-                    <option value="targeted">Targeted</option>
+                    <option value="specialty">Specialty</option>
                   </select>
                 </div>
                 <div class="col-md-3">
                   <label class="form-label small mb-1">Status</label>
-                  <select class="form-select" disabled>
+                  <select id="requestStatusFilter" class="form-select">
                     <option value="">All</option>
                     <option value="unassigned">Unassigned</option>
                     <option value="assigned">Assigned</option>
                     <option value="completed">Completed</option>
+                  </select>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label small mb-1">Sort</label>
+                  <select id="requestSort" class="form-select">
+                    <option value="newest">Newest first</option>
+                    <option value="oldest">Oldest first</option>
                   </select>
                 </div>
               </div>
@@ -98,8 +105,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr data-request-id="R-148">
-                    <td>R-148</td>
+                  <tr data-request-id="148">
+                    <td>148</td>
                     <td>user_ahmed</td>
                     <td><span class="req-badge req-badge-general">General</span></td>
                   
@@ -112,12 +119,15 @@
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
                           data-action="view-details"
-                          data-request-id="R-148"
+                          data-request-id="148"
                           data-user="user_ahmed"
                           data-type="General"
                           data-status="Unassigned"
                           data-assigned="—"
-                          data-created="05 Feb 2026"
+                          data-sending-date="05 Feb 2026"
+                          data-assignment-date="—"
+                          data-communication="Phone"
+                          data-delay-count="0"
                           data-summary="Family issue and inheritance clarification."
                           data-files="Family-summary.pdf, Family-notes.png"
                         >View details</button>
@@ -125,15 +135,22 @@
                           type="button"
                           class="btn btn-request-consultation btn-sm"
                           data-action="open-assign"
-                          data-request-id="R-148"
+                          data-request-id="148"
                           data-user="user_ahmed"
                           data-type="General"
+                          data-status="Unassigned"
+                          data-sending-date="05 Feb 2026"
+                          data-assignment-date="—"
+                          data-communication="Phone"
+                          data-delay-count="0"
+                          data-summary="Family issue and inheritance clarification."
+                          data-files="Family-summary.pdf, Family-notes.png"
                         >Assign to consultant</button>
                       </div>
                     </td>
                   </tr>
-                  <tr data-request-id="R-147" class="assigned-row">
-                    <td>R-147</td>
+                  <tr data-request-id="147" class="assigned-row">
+                    <td>147</td>
                     <td>user_sara</td>
                     <td><span class="req-badge req-badge-specialty">Legal</span></td>
                  
@@ -146,12 +163,15 @@
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
                           data-action="view-details"
-                          data-request-id="R-147"
+                          data-request-id="147"
                           data-user="user_sara"
                           data-type="Legal"
                           data-status="Assigned"
                           data-assigned="Dr. Ahmed Al-Rashid"
-                          data-created="04 Feb 2026"
+                          data-sending-date="04 Feb 2026"
+                          data-assignment-date="04 Feb 2026"
+                          data-communication="Email"
+                          data-delay-count="1"
                           data-summary="Employment contract review before signing."
                           data-files="Contract-draft.docx"
                         >View details</button>
@@ -159,8 +179,8 @@
                       </div>
                     </td>
                   </tr>
-                  <tr data-request-id="R-146" class="completed-row">
-                    <td>R-146</td>
+                  <tr data-request-id="146" class="completed-row">
+                    <td>146</td>
                     <td>user_mohammed</td>
                     <td><span class="req-badge req-badge-specialty">Educational</span></td>
                  
@@ -173,12 +193,15 @@
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
                           data-action="view-details"
-                          data-request-id="R-146"
+                          data-request-id="146"
                           data-user="user_mohammed"
                           data-type="Educational"
                           data-status="Completed"
                           data-assigned="Nora Al-Harbi"
-                          data-created="02 Feb 2026"
+                          data-sending-date="02 Feb 2026"
+                          data-assignment-date="02 Feb 2026"
+                          data-communication="Phone"
+                          data-delay-count="2"
                           data-summary="University major selection advice."
                           data-files="Grades-report.pdf"
                         >View details</button>
@@ -186,8 +209,8 @@
                       </div>
                     </td>
                   </tr>
-                  <tr data-request-id="R-145" class="unassigned-row">
-                    <td>R-145</td>
+                  <tr data-request-id="145" class="unassigned-row">
+                    <td>145</td>
                     <td>user_layla</td>
                     <td><span class="req-badge req-badge-general">General</span></td>
                   
@@ -200,12 +223,15 @@
                           type="button"
                           class="btn btn-outline-secondary btn-sm"
                           data-action="view-details"
-                          data-request-id="R-145"
+                          data-request-id="145"
                           data-user="user_layla"
                           data-type="General"
                           data-status="Unassigned"
                           data-assigned="—"
-                          data-created="01 Feb 2026"
+                          data-sending-date="01 Feb 2026"
+                          data-assignment-date="—"
+                          data-communication="WhatsApp"
+                          data-delay-count="0"
                           data-summary="Choosing between renting or buying apartment."
                           data-files="Salary-slip.pdf, Rent-offers.pdf"
                         >View details</button>
@@ -213,9 +239,16 @@
                           type="button"
                           class="btn btn-request-consultation btn-sm"
                           data-action="open-assign"
-                          data-request-id="R-145"
+                          data-request-id="145"
                           data-user="user_layla"
                           data-type="General"
+                          data-status="Unassigned"
+                          data-sending-date="01 Feb 2026"
+                          data-assignment-date="—"
+                          data-communication="WhatsApp"
+                          data-delay-count="0"
+                          data-summary="Choosing between renting or buying apartment."
+                          data-files="Salary-slip.pdf, Rent-offers.pdf"
                         >Assign to consultant</button>
                       </div>
                     </td>
@@ -259,8 +292,17 @@
                 <dt class="col-sm-4">Assigned to</dt>
                 <dd class="col-sm-8" id="modalRequestAssigned">—</dd>
 
-                <dt class="col-sm-4">Created</dt>
+                <dt class="col-sm-4">Sending date</dt>
                 <dd class="col-sm-8" id="modalRequestCreated">01 Jan 2026</dd>
+
+                <dt class="col-sm-4">Assignment date</dt>
+                <dd class="col-sm-8" id="modalRequestAssignment">—</dd>
+
+                <dt class="col-sm-4">Communication</dt>
+                <dd class="col-sm-8" id="modalRequestComm">Phone</dd>
+
+                <dt class="col-sm-4">Delay count</dt>
+                <dd class="col-sm-8" id="modalRequestDelayCount">0</dd>
               </dl>
             </div>
             <div class="col-md-6">
@@ -295,7 +337,14 @@
         </div>
         <div class="modal-body">
           <div class="mb-3 small text-muted">
-            <span id="assignRequestMeta">Request R-000 • user</span>
+            <span id="assignRequestMeta">Request 000 • user</span>
+          </div>
+          <div class="assign-meta mb-3 small">
+            <div><strong>Type:</strong> <span id="assignRequestType">General</span></div>
+            <div><strong>Sending date:</strong> <span id="assignRequestSending">01 Jan 2026</span></div>
+            <div><strong>Communication:</strong> <span id="assignRequestComm">Phone</span></div>
+            <div><strong>Delay count:</strong> <span id="assignRequestDelay">0</span></div>
+            <div class="mt-2"><strong>Summary:</strong> <span id="assignRequestSummary">Short summary here.</span></div>
           </div>
           <div class="mb-3">
             <label for="assignConsultantSelect" class="form-label">Consultant</label>
@@ -319,35 +368,7 @@
   </div>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="../index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
-            <span class="sitename">Your Advisory Guide</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Your Advisory Guide — Saudi Arabia</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
-            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Admin</h4>
-          <ul>
-            <li><a href="admin-dashboard.html">Admin Home</a></li>
-            <li><a href="admin-consultants.html">Manage Consultants</a></li>
-            <li><a href="admin-requests.html">Manage Requests</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Your Account</h4>
-          <ul>
-            <li><a href="../login.html">Log Out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    
     <div class="container copyright text-center mt-4">
       <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
     </div>

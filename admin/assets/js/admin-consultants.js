@@ -129,9 +129,81 @@
     }
 
     // Apply initial button states based on current status text
-    document.querySelectorAll(".requests-table tbody tr").forEach(function (row) {
+    var consultantRows = Array.prototype.slice.call(
+      document.querySelectorAll(".requests-table tbody tr")
+    );
+
+    consultantRows.forEach(function (row) {
       configureActionsForStatus(row, getStatusFromRow(row));
     });
+
+    // Simple filtering & sorting for consultants table (front-end only)
+    var searchInput = document.getElementById("consultantSearch");
+    var statusFilter = document.getElementById("consultantStatusFilter");
+    var sortSelect = document.getElementById("consultantSort");
+    var tbody = document.querySelector(".requests-table tbody");
+
+    function applyConsultantFilters() {
+      if (!tbody) return;
+      var term = (searchInput && searchInput.value ? searchInput.value : "").toLowerCase().trim();
+      var statusValue = statusFilter ? statusFilter.value : "";
+      var sortValue = sortSelect ? sortSelect.value : "newest";
+
+      var rows = consultantRows.slice();
+
+      // Filter
+      rows = rows.filter(function (row) {
+        var text = row.textContent.toLowerCase();
+        if (term && text.indexOf(term) === -1) return false;
+
+        if (statusValue) {
+          var statusText = getStatusFromRow(row).toLowerCase();
+          if (statusValue === "accepted" && statusText !== "accepted") return false;
+          if (statusValue === "pending" && statusText !== "pending") return false;
+          if (statusValue === "blocked" && statusText !== "blocked") return false;
+          if (statusValue === "rejected" && statusText !== "rejected") return false;
+        }
+        return true;
+      });
+
+      // Sort
+      rows.sort(function (a, b) {
+        var aTds = a.querySelectorAll("td");
+        var bTds = b.querySelectorAll("td");
+        if (sortValue === "experience") {
+          var aExp = aTds[4] ? parseInt(aTds[4].textContent, 10) || 0 : 0;
+          var bExp = bTds[4] ? parseInt(bTds[4].textContent, 10) || 0 : 0;
+          return bExp - aExp; // highest experience first
+        } else {
+          // Registered date is column index 5 in format "DD Mon YYYY"
+          var aDateStr = aTds[5] ? aTds[5].textContent : "";
+          var bDateStr = bTds[5] ? bTds[5].textContent : "";
+          var aDate = new Date(aDateStr);
+          var bDate = new Date(bDateStr);
+          if (sortValue === "oldest") {
+            return aDate - bDate;
+          }
+          // newest
+          return bDate - aDate;
+        }
+      });
+
+      // Re-render tbody with visible rows in order
+      tbody.innerHTML = "";
+      rows.forEach(function (row) {
+        tbody.appendChild(row);
+      });
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener("input", applyConsultantFilters);
+    }
+    if (statusFilter) {
+      statusFilter.addEventListener("change", applyConsultantFilters);
+    }
+    if (sortSelect) {
+      sortSelect.addEventListener("change", applyConsultantFilters);
+    }
 
     // Accept buttons – mark as Accepted (visual only)
     document

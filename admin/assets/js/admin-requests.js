@@ -50,6 +50,9 @@
     var modalStatusEl = document.getElementById("modalRequestStatus");
     var modalAssignedEl = document.getElementById("modalRequestAssigned");
     var modalCreatedEl = document.getElementById("modalRequestCreated");
+    var modalAssignmentEl = document.getElementById("modalRequestAssignment");
+    var modalCommEl = document.getElementById("modalRequestComm");
+    var modalDelayEl = document.getElementById("modalRequestDelayCount");
     var modalSummaryEl = document.getElementById("modalRequestSummary");
     var modalFilesEl = document.getElementById("modalRequestFiles");
 
@@ -64,7 +67,11 @@
         if (modalTypeEl) modalTypeEl.textContent = d.type || "";
         if (modalStatusEl) modalStatusEl.textContent = d.status || "";
         if (modalAssignedEl) modalAssignedEl.textContent = d.assigned || "—";
-        if (modalCreatedEl) modalCreatedEl.textContent = d.created || "";
+        var sendingDate = d.sendingDate || d.sendingdate || d.created || "";
+        if (modalCreatedEl) modalCreatedEl.textContent = sendingDate;
+        if (modalAssignmentEl) modalAssignmentEl.textContent = d.assignmentDate || "—";
+        if (modalCommEl) modalCommEl.textContent = d.communication || "";
+        if (modalDelayEl) modalDelayEl.textContent = d.delayCount || "0";
         if (modalSummaryEl) modalSummaryEl.textContent = d.summary || "";
 
         if (modalFilesEl) {
@@ -93,6 +100,11 @@
     var assignMetaEl = document.getElementById("assignRequestMeta");
     var assignSelectEl = document.getElementById("assignConsultantSelect");
     var assignSaveBtn = document.getElementById("assignSaveBtn");
+    var assignTypeEl = document.getElementById("assignRequestType");
+    var assignSendingEl = document.getElementById("assignRequestSending");
+    var assignCommEl = document.getElementById("assignRequestComm");
+    var assignDelayEl = document.getElementById("assignRequestDelay");
+    var assignSummaryEl = document.getElementById("assignRequestSummary");
     var currentAssignRow = null;
 
     if (assignModalEl && typeof bootstrap !== "undefined") {
@@ -112,6 +124,12 @@
           if (assignMetaEl) {
             assignMetaEl.textContent = "Request " + id + " • " + user;
           }
+
+          if (assignTypeEl) assignTypeEl.textContent = d.type || "";
+          if (assignSendingEl) assignSendingEl.textContent = d.sendingDate || "";
+          if (assignCommEl) assignCommEl.textContent = d.communication || "";
+          if (assignDelayEl) assignDelayEl.textContent = d.delayCount || "0";
+          if (assignSummaryEl) assignSummaryEl.textContent = d.summary || "";
           assignSelectEl.value = "";
           assignModal.show();
         });
@@ -148,6 +166,98 @@
         }
         currentAssignRow = null;
       });
+    }
+
+    // Simple filters & sorting for requests table (front-end only)
+    var requestRows = Array.prototype.slice.call(
+      document.querySelectorAll(".requests-table tbody tr")
+    );
+    var reqSearchInput = document.getElementById("requestSearch");
+    var reqTypeFilter = document.getElementById("requestTypeFilter");
+    var reqStatusFilter = document.getElementById("requestStatusFilter");
+    var reqSortSelect = document.getElementById("requestSort");
+    var reqTbody = document.querySelector(".requests-table tbody");
+
+    function getRequestStatusFromRow(row) {
+      if (!row) return "";
+      var badge = row.querySelector(".req-status");
+      return badge ? badge.textContent.trim().toLowerCase() : "";
+    }
+
+    function getRequestTypeFromRow(row) {
+      if (!row) return "";
+      var badge = row.querySelector(".req-badge");
+      if (!badge) return "";
+      var text = badge.textContent.trim().toLowerCase();
+      if (text === "general") return "general";
+      return "specialty";
+    }
+
+    function getRequestDateFromRow(row) {
+      if (!row) return new Date(0);
+      var tds = row.querySelectorAll("td");
+      // date column is index 5 in admin table (ID, User, Type, Status, Assigned, Created)
+      var dateStr = tds[5] ? tds[5].textContent : "";
+      return new Date(dateStr);
+    }
+
+    function applyRequestFilters() {
+      if (!reqTbody) return;
+      var term = (reqSearchInput && reqSearchInput.value ? reqSearchInput.value : "")
+        .toLowerCase()
+        .trim();
+      var typeVal = reqTypeFilter ? reqTypeFilter.value : "";
+      var statusVal = reqStatusFilter ? reqStatusFilter.value : "";
+      var sortVal = reqSortSelect ? reqSortSelect.value : "newest";
+
+      var rows = requestRows.slice();
+
+      rows = rows.filter(function (row) {
+        var text = row.textContent.toLowerCase();
+        if (term && text.indexOf(term) === -1) return false;
+
+        if (typeVal) {
+          var t = getRequestTypeFromRow(row);
+          if (t !== typeVal) return false;
+        }
+
+        if (statusVal) {
+          var s = getRequestStatusFromRow(row);
+          if (statusVal === "unassigned" && s !== "unassigned") return false;
+          if (statusVal === "assigned" && s !== "assigned") return false;
+          if (statusVal === "completed" && s !== "completed") return false;
+        }
+
+        return true;
+      });
+
+      rows.sort(function (a, b) {
+        var aDate = getRequestDateFromRow(a);
+        var bDate = getRequestDateFromRow(b);
+        if (sortVal === "oldest") {
+          return aDate - bDate;
+        }
+        // newest
+        return bDate - aDate;
+      });
+
+      reqTbody.innerHTML = "";
+      rows.forEach(function (row) {
+        reqTbody.appendChild(row);
+      });
+    }
+
+    if (reqSearchInput) {
+      reqSearchInput.addEventListener("input", applyRequestFilters);
+    }
+    if (reqTypeFilter) {
+      reqTypeFilter.addEventListener("change", applyRequestFilters);
+    }
+    if (reqStatusFilter) {
+      reqStatusFilter.addEventListener("change", applyRequestFilters);
+    }
+    if (reqSortSelect) {
+      reqSortSelect.addEventListener("change", applyRequestFilters);
     }
 
     // Mark assigned request as completed

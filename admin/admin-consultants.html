@@ -60,20 +60,21 @@
               <div class="row g-3 flex-grow-1">
                 <div class="col-md-4">
                   <label class="form-label small mb-1">Search</label>
-                  <input type="text" class="form-control" placeholder="Name, email, phone..." disabled>
+                  <input id="consultantSearch" type="text" class="form-control" placeholder="Name, username, email, phone...">
                 </div>
                 <div class="col-md-3">
                   <label class="form-label small mb-1">Status</label>
-                  <select class="form-select" disabled>
+                  <select id="consultantStatusFilter" class="form-select">
                     <option value="">All</option>
                     <option value="pending">Pending</option>
-                    <option value="approved">Accepted</option>
+                    <option value="accepted">Accepted</option>
                     <option value="blocked">Blocked</option>
+                    <option value="rejected">Rejected</option>
                   </select>
                 </div>
                 <div class="col-md-3">
                   <label class="form-label small mb-1">Sort by</label>
-                  <select class="form-select" disabled>
+                  <select id="consultantSort" class="form-select">
                     <option value="newest">Newest first</option>
                     <option value="oldest">Oldest first</option>
                     <option value="experience">Experience</option>
@@ -99,7 +100,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>C-001</td>
+                    <td>1</td>
                     <td>consult_ahmed</td>
                     <td>ahmed@example.com</td>
                     <td>+966 50 000 0001</td>
@@ -112,7 +113,7 @@
                           type="button"
                           class="btn btn-outline-secondary"
                           data-action="view-profile"
-                          data-id="C-001"
+                          data-id="1"
                           data-username="consult_ahmed"
                           data-email="ahmed@example.com"
                           data-phone="+966 50 000 0001"
@@ -127,7 +128,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>C-016</td>
+                    <td>16</td>
                     <td>consult_huda</td>
                     <td>huda@example.com</td>
                     <td>+966 55 000 0016</td>
@@ -140,7 +141,7 @@
                           type="button"
                           class="btn btn-outline-secondary"
                           data-action="view-profile"
-                          data-id="C-016"
+                          data-id="16"
                           data-username="consult_huda"
                           data-email="huda@example.com"
                           data-phone="+966 55 000 0016"
@@ -158,7 +159,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>C-010</td>
+                    <td>10</td>
                     <td>consult_fahad</td>
                     <td>fahad@example.com</td>
                     <td>+966 53 000 0010</td>
@@ -171,7 +172,7 @@
                           type="button"
                           class="btn btn-outline-secondary"
                           data-action="view-profile"
-                          data-id="C-010"
+                          data-id="10"
                           data-username="consult_fahad"
                           data-email="fahad@example.com"
                           data-phone="+966 53 000 0010"
@@ -186,7 +187,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>C-008</td>
+                    <td>8</td>
                     <td>consult_nora</td>
                     <td>nora@example.com</td>
                     <td>+966 54 000 0008</td>
@@ -199,7 +200,7 @@
                           type="button"
                           class="btn btn-outline-secondary"
                           data-action="view-profile"
-                          data-id="C-008"
+                          data-id="8"
                           data-username="consult_nora"
                           data-email="nora@example.com"
                           data-phone="+966 54 000 0008"
@@ -238,7 +239,7 @@
             <div class="col-md-6">
               <dl class="row mb-0">
                 <dt class="col-sm-5">Consultant ID</dt>
-                <dd class="col-sm-7" id="modalConsultantId">C-000</dd>
+                <dd class="col-sm-7" id="modalConsultantId">000</dd>
 
                 <dt class="col-sm-5">Username</dt>
                 <dd class="col-sm-7" id="modalConsultantUsername">username</dd>
@@ -272,35 +273,7 @@
   </div>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="../index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/white logo.png" alt="Your Advisory Guide" style="max-height: 36px;" class="me-2">
-            <span class="sitename">Your Advisory Guide</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>Your Advisory Guide — Saudi Arabia</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+966 XX XXX XXXX</span></p>
-            <p><strong>Email:</strong> <span>info@youradvisoryguide.com</span></p>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Admin</h4>
-          <ul>
-            <li><a href="admin-dashboard.html">Admin Home</a></li>
-            <li><a href="admin-consultants.html">Manage Consultants</a></li>
-            <li><a href="admin-requests.html">Manage Requests</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Your Account</h4>
-          <ul>
-            <li><a href="../login.html">Log Out</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+   
     <div class="container copyright text-center mt-4">
       <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
     </div>

@@ -229,12 +229,16 @@
 }
 /* Request badges */
 .req-badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.3rem 0.65rem;
   border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 500;
   white-space: nowrap;
+  min-width: 110px;
+  text-align: center;
 }
 .req-badge-targeted {
   background: rgba(99, 110, 74, 0.2);
@@ -253,12 +257,16 @@
   color: var(--default-color);
 }
 .req-status {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.3rem 0.65rem;
   border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
+  min-width: 110px;
+  text-align: center;
 }
 .req-status-pending {
   background: rgba(213, 185, 136, 0.35);
@@ -373,6 +381,9 @@
 .request-modal #modalRequestSummary {
   line-height: 1.6;
   color: var(--default-color);
+}
+.assign-meta div {
+  margin-bottom: 0.1rem;
 }
 .request-modal #modalRequestFiles li {
   margin-bottom: 0.15rem;
