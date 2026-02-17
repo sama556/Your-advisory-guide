@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Profile - Consultant - Your Advisory Guide</title>
+  <meta name="description" content="Consultant profile management">
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../admin/assets/css/admin.css" rel="stylesheet">
+ 
+  <link href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" rel="stylesheet">
+  <style>
+    .consultant-profile-page .profile-header-card {
+      background: linear-gradient(135deg, rgba(92, 114, 105, 0.08) 0%, rgba(166, 192, 179, 0.14) 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(92, 114, 105, 0.12);
+      margin-bottom: 1.5rem;
+    }
+    .consultant-profile-page .profile-section-card {
+      background: var(--surface-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(92, 114, 105, 0.08);
+      border: 1px solid rgba(92, 114, 105, 0.1);
+      margin-bottom: 1.5rem;
+    }
+    .consultant-profile-page .profile-section-card .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--secondary-color);
+    }
+    .consultant-profile-page .form-label {
+      font-weight: 500;
+      color: var(--heading-color);
+    }
+    .consultant-profile-page .form-control:focus,
+    .consultant-profile-page .form-select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 0.2rem rgba(125, 155, 138, 0.22);
+    }
+    .consultant-profile-page .consultant-avatar-lg {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--contrast-color);
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    .consultant-profile-page .password-mask {
+      font-family: monospace;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+
+<body class="user-page consultant-profile-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <img src="../assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="consultant-dashboard.html">Dashboard</a></li>
+          <li><a href="consultant-profile.html" class="active">Profile</a></li>
+          <li><a href="consultant-requests.html">My Requests</a></li>
+          <li><a href="../login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <nav aria-label="breadcrumb" class="mb-3">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="consultant-dashboard.html">Dashboard</a></li>
+            <li class="breadcrumb-item active">Manage profile</li>
+          </ol>
+        </nav>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1 class="h2 mb-1">Manage profile</h1>
+            <p class="mb-0 text-muted">Update your professional data, contact information and specializations.</p>
+          </div>
+        </div>
+
+        <div class="profile-header-card" data-aos="fade-up">
+          <div class="d-flex flex-wrap align-items-center gap-4">
+            <div class="consultant-avatar-lg">A</div>
+            <div class="flex-grow-1">
+              <h2 class="h4 mb-1">Dr. Ahmed Al-Rashid</h2>
+              <p class="text-muted mb-2">Senior Legal Consultant</p>
+              <span class="req-status req-status-assigned">Accepted</span>
+              <span class="badge rounded-pill bg-light text-dark border ms-2">12 years experience</span>
+            </div>
+            <div>
+              <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                <i class="bi bi-key me-2"></i> Change password
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="profile-section-card" data-aos="fade-up">
+              <h3 class="section-title"><i class="bi bi-person-badge me-2"></i>Professional data</h3>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Consultant ID</label>
+                  <input type="text" class="form-control" value="C-001" disabled>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Username</label>
+                  <input type="text" class="form-control" value="consult_ahmed" disabled>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" id="profileEmail" value="ahmed@example.com">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" class="form-control" id="profilePhone" value="+966 50 000 0001">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Experience (years)</label>
+                  <input type="number" class="form-control" id="profileExperience" value="12">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Status</label>
+                  <input type="text" class="form-control" value="Accepted" disabled>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Bio</label>
+                  <textarea class="form-control" id="profileBio" rows="4">Senior legal consultant focused on commercial and family law. Handles contracts, disputes and mediation for individuals and small businesses.</textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-section-card" data-aos="fade-up">
+              <h3 class="section-title"><i class="bi bi-telephone me-2"></i>Contact information</h3>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Contact number</label>
+                  <input type="tel" class="form-control" id="profileContactNumber" value="+966 50 000 0001">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Location</label>
+                  <input type="text" class="form-control" id="profileLocation" value="Riyadh, Saudi Arabia">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Communication method</label>
+                  <select class="form-select" id="profileCommMethod">
+                    <option>Phone</option>
+                    <option>WhatsApp</option>
+                    <option>Email</option>
+                    <option>All of the above</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-section-card" data-aos="fade-up">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="section-title mb-0"><i class="bi bi-tags me-2"></i>Specializations</h3>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="addSpecializationBtn">
+                  <i class="bi bi-plus-circle me-1"></i> Add specialization
+                </button>
+              </div>
+              <div class="row g-3" id="specializationsContainer">
+                <div class="col-md-6 specialization-item">
+                  <label class="form-label">Specialization 1</label>
+                  <div class="d-flex align-items-start gap-2">
+                    <div class="flex-grow-1">
+                      <input type="text" class="form-control mb-2 specialization-title" value="Commercial law" placeholder="Title">
+                      <textarea class="form-control form-control-sm specialization-desc" rows="2" placeholder="Description">Contract review and company setup.</textarea>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-specialization" title="Remove"><i class="bi bi-trash"></i></button>
+                  </div>
+                </div>
+                <div class="col-md-6 specialization-item">
+                  <label class="form-label">Specialization 2</label>
+                  <div class="d-flex align-items-start gap-2">
+                    <div class="flex-grow-1">
+                      <input type="text" class="form-control mb-2 specialization-title" value="Family law" placeholder="Title">
+                      <textarea class="form-control form-control-sm specialization-desc" rows="2" placeholder="Description">Divorce, custody and inheritance guidance.</textarea>
+                    </div>
+                    <button type="button" class="btn btn-outline-danger btn-sm remove-specialization" title="Remove"><i class="bi bi-trash"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <button type="button" class="btn btn-request-consultation" id="saveChangesBtn">
+                <i class="bi bi-check-circle me-2"></i> Save changes
+              </button>
+              <button type="button" class="btn btn-outline-secondary ms-2" id="cancelChangesBtn">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Change password modal -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content request-modal">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title h5 mb-1" id="changePasswordModalLabel">Change password</h2>
+            <p class="mb-0 small text-muted">Enter your current password and choose a new one.</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="changePasswordForm">
+            <div class="mb-3">
+              <label for="currentPassword" class="form-label">Current password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password" required>
+            </div>
+            <div class="mb-3">
+              <label for="newPassword" class="form-label">New password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="newPassword" placeholder="Enter new password" required minlength="6">
+              <div class="form-text">At least 6 characters.</div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm new password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm new password" required minlength="6">
+              <div class="invalid-feedback">Passwords do not match.</div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-request-consultation" id="changePasswordSubmit">
+            <i class="bi bi-key me-2"></i> Update password
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="../admin/assets/js/main.js"></script>
+  <script src="js/profile.js"></script>
+ 
+</body>
+
+</html>

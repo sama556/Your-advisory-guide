@@ -19,14 +19,23 @@
 
 /* Global Colors - Consultation platform palette */
 :root { 
-  --primary-color: #a6c0b3;
-  --secondary-color: #cfe2e0;
-  --accent-color: #718b87;
-  --background-color: #ebf4f3;
-  --default-color: #494747; /* Text on light background */
-  --heading-color: #c1d4b4; /* Dark olive for headings */
-  --surface-color: #ffffff; /* Cards, boxes */
-  --contrast-color: #ffffff; /* Text on primary/accent buttons */
+  --primary-color: #7d9b8a;
+  --primary-light: #a6c0b3;
+  --primary-dark: #5c7269;
+  --secondary-color: #c5ddd4;
+  --accent-color: #5c7269;
+  --background-color: #e8f0ee;
+  --default-color: #3d4945;
+  --heading-color: #2d3d36;
+  --surface-color: #ffffff;
+  --contrast-color: #ffffff;
+  /* Status/badge semantics */
+  --status-new: #b8860b;
+  --status-active: #5c7269;
+  --status-done: #2d5a2d;
+  --status-warning-bg: rgba(184, 134, 11, 0.18);
+  --status-active-bg: rgba(92, 114, 105, 0.18);
+  --status-done-bg: rgba(45, 90, 45, 0.14);
 }
 
 /* Nav Menu Colors - Consultation platform */
@@ -36,7 +45,7 @@
   --nav-mobile-background-color: #EBF4F3;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #444444;
-  --nav-dropdown-hover-color: #a6c0b3; /* primary */
+  --nav-dropdown-hover-color: var(--primary-color);
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */

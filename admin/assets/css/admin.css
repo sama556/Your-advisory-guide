@@ -19,13 +19,13 @@
   border-radius: 12px;
   padding: 1.25rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 12px rgba(99, 110, 74, 0.08);
-  border: 1px solid rgba(99, 110, 74, 0.1);
+  box-shadow: 0 2px 12px rgba(92, 114, 105, 0.1);
+  border: 1px solid rgba(92, 114, 105, 0.14);
 }
 .user-filters .form-control:focus,
 .user-filters .form-select:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(99, 110, 74, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(125, 155, 138, 0.22);
 }
 
 /* Consultant cards */
@@ -33,8 +33,8 @@
   background: var(--surface-color);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
-  border: 1px solid rgba(99, 110, 74, 0.1);
+  box-shadow: 0 4px 20px rgba(92, 114, 105, 0.1);
+  border: 1px solid rgba(92, 114, 105, 0.12);
   transition: transform 0.2s, box-shadow 0.2s;
   height: 100%;
   display: flex;
@@ -42,7 +42,8 @@
 }
 .consultant-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(99, 110, 74, 0.15);
+  box-shadow: 0 8px 28px rgba(92, 114, 105, 0.18);
+  border-color: rgba(92, 114, 105, 0.2);
 }
 .consultant-card .card-body {
   flex: 1;
@@ -50,8 +51,8 @@
 }
 .consultant-card .consultant-specialty {
   display: inline-block;
-  background: rgba(99, 110, 74, 0.15);
-  color: var(--primary-color);
+  background: var(--status-active-bg);
+  color: var(--accent-color);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.6rem;
@@ -90,7 +91,7 @@
   transition: background 0.2s;
 }
 .consultant-card .btn-view-profile:hover {
-  background: #718b87;
+  background: var(--accent-color);
   color: var(--contrast-color);
 }
 
@@ -120,6 +121,30 @@
   margin: 0.25rem 0.25rem 0 0;
   font-size: 0.9rem;
 }
+
+/* Consultant dashboard profile card */
+.consultant-profile-card {
+  position: relative;
+}
+.consultant-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--contrast-color);
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.consultant-profile-meta .text-truncate {
+  max-width: 140px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .btn-request-consultation {
   background: var(--primary-color);
   color: var(--contrast-color);
@@ -130,7 +155,7 @@
   transition: background 0.2s;
 }
 .btn-request-consultation:hover {
-  background: #718b87;
+  background: var(--accent-color);
   color: var(--contrast-color);
 }
 
@@ -139,8 +164,8 @@
   background: var(--surface-color);
   border-radius: 12px;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
-  border: 1px solid rgba(99, 110, 74, 0.1);
+  box-shadow: 0 4px 20px rgba(92, 114, 105, 0.1);
+  border: 1px solid rgba(92, 114, 105, 0.12);
 }
 .request-form-card .form-label {
   font-weight: 500;
@@ -149,7 +174,7 @@
 .request-form-card .form-control:focus,
 .request-form-card .form-select:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 0.2rem rgba(99, 110, 74, 0.2);
+  box-shadow: 0 0 0 0.2rem rgba(125, 155, 138, 0.22);
 }
 .request-form-card .btn-submit-request {
   background: var(--primary-color);
@@ -160,7 +185,7 @@
   border-radius: 8px;
 }
 .request-form-card .btn-submit-request:hover {
-  background: #718b87;
+  background: var(--accent-color);
   color: var(--contrast-color);
 }
 .request-type-badge {
@@ -172,12 +197,12 @@
   margin-bottom: 1rem;
 }
 .request-type-badge.targeted {
-  background: rgba(99, 110, 74, 0.2);
-  color: var(--primary-color);
+  background: var(--status-active-bg);
+  color: var(--accent-color);
 }
 .request-type-badge.general {
-  background: rgba(213, 185, 136, 0.3);
-  color: var(--heading-color);
+  background: var(--status-warning-bg);
+  color: var(--status-new);
 }
 
 /* My requests page – table redesign */
@@ -188,8 +213,8 @@
   background: var(--surface-color);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(99, 110, 74, 0.1);
-  border: 1px solid rgba(99, 110, 74, 0.12);
+  box-shadow: 0 4px 20px rgba(92, 114, 105, 0.1);
+  border: 1px solid rgba(92, 114, 105, 0.12);
 }
 .requests-table {
   width: 100%;
@@ -199,22 +224,23 @@
   color: var(--default-color);
 }
 .requests-table thead {
-  background: var(--primary-color);
+  background: var(--accent-color);
   color: var(--contrast-color);
 }
 .requests-table thead th {
   font-weight: 600;
-  text-align: left;
+  text-align: center;
   padding: 1rem 1rem;
   white-space: nowrap;
   border: none;
+  letter-spacing: 0.02em;
 }
 .requests-table tbody tr {
-  border-bottom: 1px solid rgba(99, 110, 74, 0.1);
+  border-bottom: 1px solid rgba(92, 114, 105, 0.12);
   transition: background 0.2s;
 }
 .requests-table tbody tr:hover {
-  background: rgba(216, 217, 146, 0.15);
+  background: var(--status-active-bg);
 }
 .requests-table tbody tr:last-child {
   border-bottom: none;
@@ -222,6 +248,8 @@
 .requests-table tbody td {
   padding: 1rem;
   vertical-align: middle;
+  color: var(--default-color);
+  text-align: center;
 }
 .requests-table tbody td:first-child {
   font-weight: 600;
@@ -241,16 +269,16 @@
   text-align: center;
 }
 .req-badge-targeted {
-  background: rgba(99, 110, 74, 0.2);
-  color: var(--primary-color);
+  background: var(--status-active-bg);
+  color: var(--accent-color);
 }
 .req-badge-general {
-  background: rgba(213, 185, 136, 0.35);
-  color: var(--heading-color);
+  background: var(--status-warning-bg);
+  color: var(--status-new);
 }
 .req-badge-specialty {
-  background: rgba(216, 217, 146, 0.4);
-  color: var(--heading-color);
+  background: var(--status-active-bg);
+  color: var(--accent-color);
 }
 .req-comm {
   font-size: 0.85rem;
@@ -269,27 +297,27 @@
   text-align: center;
 }
 .req-status-pending {
-  background: rgba(213, 185, 136, 0.35);
-  color: #8b6914;
+  background: var(--status-warning-bg);
+  color: var(--status-new);
 }
 .req-status-assigned {
-  background: rgba(99, 110, 74, 0.2);
-  color: var(--primary-color);
+  background: var(--status-active-bg);
+  color: var(--accent-color);
 }
 .req-status-completed {
-  background: rgba(45, 90, 45, 0.15);
-  color: #2d5a2d;
+  background: var(--status-done-bg);
+  color: var(--status-done);
 }
 
 /* Admin consultant profile modal */
 .consultant-modal {
   background: var(--surface-color);
   border-radius: 16px;
-  border: 1px solid rgba(99, 110, 74, 0.18);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(92, 114, 105, 0.18);
+  box-shadow: 0 18px 45px rgba(45, 61, 54, 0.12);
 }
 .consultant-modal .modal-header {
-  border-bottom: 1px solid rgba(99, 110, 74, 0.15);
+  border-bottom: 1px solid rgba(92, 114, 105, 0.14);
   padding: 1.1rem 1.5rem;
 }
 .consultant-modal .modal-title {
@@ -311,7 +339,7 @@
 .consultant-modal h6,
 .consultant-modal .h6 {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 .consultant-modal #modalConsultantBio {
@@ -319,7 +347,7 @@
   color: var(--default-color);
 }
 .consultant-modal .modal-footer {
-  border-top: 1px solid rgba(99, 110, 74, 0.15);
+  border-top: 1px solid rgba(92, 114, 105, 0.14);
   padding: 0.9rem 1.5rem;
 }
 
@@ -349,11 +377,11 @@
 .request-modal {
   background: var(--surface-color);
   border-radius: 16px;
-  border: 1px solid rgba(99, 110, 74, 0.18);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(92, 114, 105, 0.18);
+  box-shadow: 0 18px 45px rgba(45, 61, 54, 0.12);
 }
 .request-modal .modal-header {
-  border-bottom: 1px solid rgba(99, 110, 74, 0.15);
+  border-bottom: 1px solid rgba(92, 114, 105, 0.14);
   padding: 1.1rem 1.5rem;
 }
 .request-modal .modal-title {
@@ -375,7 +403,7 @@
 .request-modal h6,
 .request-modal .h6 {
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--accent-color);
   margin-bottom: 0.5rem;
 }
 .request-modal #modalRequestSummary {
@@ -389,7 +417,7 @@
   margin-bottom: 0.15rem;
 }
 .request-modal .modal-footer {
-  border-top: 1px solid rgba(99, 110, 74, 0.15);
+  border-top: 1px solid rgba(92, 114, 105, 0.14);
   padding: 0.9rem 1.5rem;
 }
 

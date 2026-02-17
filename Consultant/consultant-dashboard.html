@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultant Dashboard - Your Advisory Guide</title>
+  <meta name="description" content="Consultant overview for Your Advisory Guide">
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="../admin/assets/css/admin.css" rel="stylesheet">
+
+</head>
+
+<body class="user-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <img src="../assets/img/white logo.png" alt="Your Advisory Guide" class="logo-img me-2" style="max-height: 42px;">
+        <h1 class="sitename mb-0">Your Advisory Guide</h1>
+      </a>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="consultant-dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="consultant-profile.html">Profile</a></li>
+          <li><a href="consultant-requests.html">My Requests</a></li>
+          <li><a href="../login.html">Log Out</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="page-head">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+          <div>
+            <h1>Consultant dashboard</h1>
+            <p>Overview of your requests and activity summary.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <a href="consultant-requests.html" class="btn btn-request-consultation">
+              <i class="bi bi-inbox me-2"></i> View all requests
+            </a>
+            <a href="consultant-profile.html" class="btn btn-outline-secondary">
+              <i class="bi bi-person me-2"></i> Manage profile
+            </a>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-4" data-aos="fade-up">
+          <div class="col-md-3">
+            <div class="requests-table-card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="text-muted small">Total requests</span>
+                <i class="bi bi-chat-dots text-primary"></i>
+              </div>
+              <h2 class="h3 mb-1">12</h2>
+              <p class="small text-muted mb-0">Requests assigned to you.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="requests-table-card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="text-muted small">Open requests</span>
+                <i class="bi bi-clock-history text-warning"></i>
+              </div>
+              <h2 class="h3 mb-1">5</h2>
+              <p class="small text-muted mb-0">Waiting for your response.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="requests-table-card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="text-muted small">Completed</span>
+                <i class="bi bi-check-circle text-success"></i>
+              </div>
+              <h2 class="h3 mb-1">7</h2>
+              <p class="small text-muted mb-0">Requests you have closed.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="requests-table-card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <span class="text-muted small">Avg. response time</span>
+                <i class="bi bi-speedometer2 text-secondary"></i>
+              </div>
+              <h2 class="h3 mb-1">6h</h2>
+              <p class="small text-muted mb-0">Average time to first reply.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 " data-aos="fade-up">
+          <div class="col-lg-12">
+            <div class="requests-table-card p-3 h-100">
+              <div class="d-flex align-items-center justify-content-between mb-2">
+                <h2 class="h5 mb-0">Recent consultation requests</h2>
+                <a href="consultant-requests.html" class="small text-decoration-underline">View all</a>
+              </div>
+              <table class="requests-table mb-0">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Sending date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>148</td>
+                    <td>user_ahmed</td>
+                    <td><span class="req-badge req-badge-general">General</span></td>
+                    <td><span class="req-status req-status-pending">Awaiting reply</span></td>
+                    <td>05 Feb 2026</td>
+                  </tr>
+                  <tr>
+                    <td>147</td>
+                    <td>user_sara</td>
+                    <td><span class="req-badge req-badge-specialty">Legal</span></td>
+                    <td><span class="req-status req-status-assigned">In progress</span></td>
+                    <td>04 Feb 2026</td>
+                  </tr>
+                  <tr>
+                    <td>146</td>
+                    <td>user_mohammed</td>
+                    <td><span class="req-badge req-badge-specialty">Educational</span></td>
+                    <td><span class="req-status req-status-completed">Completed</span></td>
+                    <td>02 Feb 2026</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+    <div class="container copyright text-center mt-4">
+      <p>© <span>All Rights Reserved</span> <strong class="px-1 sitename">Your Advisory Guide</strong></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../admin/assets/js/main.js"></script>
+</body>
+
+</html>
