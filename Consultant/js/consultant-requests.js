@@ -6,6 +6,12 @@
     var statusFilter = document.getElementById('consultReqStatusFilter');
     var countEl = document.getElementById('consultRequestsCount');
     var modal = document.getElementById('requestDetailModal');
+    var updateModal = document.getElementById('updateStatusModal');
+    var updateSelect = document.getElementById('updateStatusSelect');
+    var updateIdEl = document.getElementById('updateStatusRequestId');
+    var updateSaveBtn = document.getElementById('updateStatusSaveBtn');
+
+    var currentRow = null;
 
     function showToast(message, type) {
       type = type || 'success';
@@ -68,9 +74,32 @@
     if (typeFilter) typeFilter.addEventListener('change', filterRows);
     if (statusFilter) statusFilter.addEventListener('change', filterRows);
 
+    function applyStatusToRow(row, newStatus) {
+      if (!row) return;
+      row.dataset.status = newStatus;
+      var badge = row.querySelector('.req-status');
+      if (!badge) return;
+      var text = '';
+      badge.classList.remove('req-status-pending', 'req-status-assigned', 'req-status-completed');
+      if (newStatus === 'waiting') {
+        badge.classList.add('req-status-pending');
+        text = 'Waiting to reply';
+      } else if (newStatus === 'inprogress') {
+        badge.classList.add('req-status-assigned');
+        text = 'In progress';
+      } else if (newStatus === 'completed') {
+        badge.classList.add('req-status-completed');
+        text = 'Completed';
+      } else {
+        text = newStatus;
+      }
+      badge.textContent = text;
+    }
+
     function openRequestModal(row) {
       var data = getRowData(row);
       if (!data || !modal) return;
+      currentRow = row;
       var idEl = document.getElementById('modalRequestId');
       var serviceEl = document.getElementById('modalServiceType');
       var statusEl = document.getElementById('modalStatus');
@@ -85,7 +114,13 @@
 
       if (idEl) idEl.textContent = data.requestId;
       if (serviceEl) serviceEl.textContent = (data.serviceType || '').replace(/-/g, ' ');
-      if (statusEl) statusEl.textContent = (data.status || '').replace(/-/g, ' ');
+      if (statusEl) {
+        var s = data.status || '';
+        if (s === 'waiting') statusEl.textContent = 'Waiting to reply';
+        else if (s === 'inprogress') statusEl.textContent = 'In progress';
+        else if (s === 'completed') statusEl.textContent = 'Completed';
+        else statusEl.textContent = s.replace(/-/g, ' ');
+      }
       if (commEl) commEl.textContent = data.communication || '—';
       if (creationEl) creationEl.textContent = data.creationDate || '—';
       if (assignmentEl) assignmentEl.textContent = data.assignmentDate || '—';
@@ -162,10 +197,43 @@
 
     if (tableBody) {
       tableBody.addEventListener('click', function (e) {
-        var btn = e.target.closest('.btn-view-request');
-        if (!btn) return;
-        var row = btn.closest('.request-row');
-        if (row) openRequestModal(row);
+        var viewBtn = e.target.closest('.btn-view-request');
+        var statusBtn = e.target.closest('.btn-update-status');
+        if (!viewBtn && !statusBtn) return;
+        var row = (viewBtn || statusBtn).closest('.request-row');
+        if (!row) return;
+        currentRow = row;
+        var data = getRowData(row);
+        if (!data) return;
+        if (viewBtn) {
+          openRequestModal(row);
+        } else if (statusBtn && updateModal && updateSelect) {
+          if (updateIdEl) updateIdEl.textContent = data.requestId || '—';
+          updateSelect.value = data.status || 'waiting';
+          var bsUpdate = typeof bootstrap !== 'undefined' && bootstrap.Modal ? new bootstrap.Modal(updateModal) : null;
+          if (bsUpdate) bsUpdate.show();
+        }
+      });
+    }
+
+    if (updateSaveBtn && updateModal && updateSelect) {
+      updateSaveBtn.addEventListener('click', function () {
+        if (!currentRow) return;
+        var newStatus = updateSelect.value || 'waiting';
+        applyStatusToRow(currentRow, newStatus);
+        var statusEl = document.getElementById('modalStatus');
+        if (statusEl) {
+          if (newStatus === 'waiting') statusEl.textContent = 'Waiting to reply';
+          else if (newStatus === 'inprogress') statusEl.textContent = 'In progress';
+          else if (newStatus === 'completed') statusEl.textContent = 'Completed';
+          else statusEl.textContent = newStatus.replace(/-/g, ' ');
+        }
+        if (typeof bootstrap !== 'undefined' && bootstrap.Modal.getInstance(updateModal)) {
+          bootstrap.Modal.getInstance(updateModal).hide();
+        }
+        var label = newStatus === 'waiting' ? 'Waiting to reply' : newStatus === 'inprogress' ? 'In progress' : newStatus === 'completed' ? 'Completed' : newStatus.replace(/-/g, ' ');
+        showToast('Status updated to ' + label + '.');
+        filterRows();
       });
     }
 

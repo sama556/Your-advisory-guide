@@ -112,101 +112,110 @@
                   <label class="form-label small mb-1">Search</label>
                   <input id="consultReqSearch" type="text" class="form-control" placeholder="User name, request ID, keywords...">
                 </div>
-                <div class="col-md-3">
-                  <label class="form-label small mb-1">Service type</label>
-                  <select id="consultReqTypeFilter" class="form-select">
-                    <option value="">All</option>
-                    <option value="general">General</option>
-                    <option value="legal">Legal</option>
-                    <option value="educational">Educational</option>
-                    <option value="psychological">Psychological</option>
-                    <option value="real-estate">Real estate</option>
-                  </select>
-                </div>
-                <div class="col-md-3">
+                
+                <div class="col-md-5">
                   <label class="form-label small mb-1">Status</label>
                   <select id="consultReqStatusFilter" class="form-select">
                     <option value="">All</option>
-                    <option value="new">New</option>
-                    <option value="transferred">Transferred</option>
-                    <option value="processed">Processed</option>
-                    <option value="closed">Closed</option>
+                    <option value="waiting">Waiting to reply</option>
+                    <option value="inprogress">In progress</option>
+                    <option value="completed">Completed</option>
                   </select>
                 </div>
               </div>
             </div>
 
             <div class="table-responsive consult-requests-table-wrap">
+            
               <table class="requests-table consult-requests-table mb-0">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>User</th>
-                    <th>Type</th>
                     <th>Status</th>
                     <th>Date</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody id="consultRequestsTableBody">
-                  <tr class="request-row" data-request-id="148" data-user-name="Ahmed Ali" data-user-email="ahmed.ali@example.com" data-user-mobile="+966501234567" data-service-type="general" data-status="new" data-communication="Phone" data-creation-date="2026-02-05" data-assignment-date="2026-02-05" data-problem="Family issue and inheritance clarification. Need guidance on distribution of assets." data-files="">
+                  <tr class="request-row" data-request-id="148" data-user-name="Ahmed Ali" data-user-email="ahmed.ali@example.com" data-user-mobile="+966501234567" data-service-type="general" data-status="waiting" data-communication="Phone" data-creation-date="2026-02-05" data-assignment-date="2026-02-05" data-problem="Family issue and inheritance clarification. Need guidance on distribution of assets." data-files="">
                     <td><span class="req-id">#148</span></td>
                     <td><span class="req-user">Ahmed Ali</span></td>
-                    <td><span class="req-badge req-badge-general">General</span></td>
-                    <td><span class="req-status req-status-pending">New</span></td>
+                    <td><span class="req-status req-status-pending">Waiting to reply</span></td>
                     <td><span class="req-date">05 Feb 2026</span></td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-request-action btn-view-request" data-action="view-request">
-                        <i class="bi bi-eye"></i> View
-                      </button>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-request-action btn-view-request" data-action="view-request">
+                          <i class="bi bi-eye"></i> View
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-update-status" data-action="update-status">
+                          <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
-                  <tr class="request-row" data-request-id="147" data-user-name="Sara Mohammed" data-user-email="sara.m@example.com" data-user-mobile="+966552345678" data-service-type="legal" data-status="transferred" data-communication="WhatsApp" data-creation-date="2026-02-04" data-assignment-date="2026-02-04" data-problem="Employment contract review before signing. Need to check clauses and obligations." data-files="contract_draft.pdf">
+                  <tr class="request-row" data-request-id="147" data-user-name="Sara Mohammed" data-user-email="sara.m@example.com" data-user-mobile="+966552345678" data-service-type="legal" data-status="inprogress" data-communication="WhatsApp" data-creation-date="2026-02-04" data-assignment-date="2026-02-04" data-problem="Employment contract review before signing. Need to check clauses and obligations." data-files="contract_draft.pdf">
                     <td><span class="req-id">#147</span></td>
                     <td><span class="req-user">Sara Mohammed</span></td>
-                    <td><span class="req-badge req-badge-specialty">Legal</span></td>
-                    <td><span class="req-status req-status-assigned">Transferred</span></td>
+                    <td><span class="req-status req-status-assigned">In progress</span></td>
                     <td><span class="req-date">04 Feb 2026</span></td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-request-action btn-view-request" data-action="view-request">
-                        <i class="bi bi-eye"></i> View
-                      </button>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-request-action btn-view-request" data-action="view-request">
+                          <i class="bi bi-eye"></i> View
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-update-status" data-action="update-status">
+                          <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
-                  <tr class="request-row" data-request-id="146" data-user-name="Mohammed Khalid" data-user-email="mkhalid@example.com" data-user-mobile="+966553456789" data-service-type="educational" data-status="processed" data-communication="Email" data-creation-date="2026-02-02" data-assignment-date="2026-02-02" data-problem="University major selection advice. Student between engineering and business." data-files="">
+                  <tr class="request-row" data-request-id="146" data-user-name="Mohammed Khalid" data-user-email="mkhalid@example.com" data-user-mobile="+966553456789" data-service-type="educational" data-status="inprogress" data-communication="Email" data-creation-date="2026-02-02" data-assignment-date="2026-02-02" data-problem="University major selection advice. Student between engineering and business." data-files="">
                     <td><span class="req-id">#146</span></td>
                     <td><span class="req-user">Mohammed Khalid</span></td>
-                    <td><span class="req-badge req-badge-specialty">Educational</span></td>
-                    <td><span class="req-status req-status-assigned">Processed</span></td>
+                    <td><span class="req-status req-status-assigned">In progress</span></td>
                     <td><span class="req-date">02 Feb 2026</span></td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-request-action btn-view-request" data-action="view-request">
-                        <i class="bi bi-eye"></i> View
-                      </button>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-request-action btn-view-request" data-action="view-request">
+                          <i class="bi bi-eye"></i> View
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-update-status" data-action="update-status">
+                          <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
-                  <tr class="request-row" data-request-id="145" data-user-name="Nora Abdullah" data-user-email="nora.a@example.com" data-user-mobile="+966504567890" data-service-type="psychological" data-status="closed" data-communication="Phone" data-creation-date="2026-02-01" data-assignment-date="2026-02-01" data-problem="Career stress and work-life balance. Need short-term coping strategies." data-files="">
+                  <tr class="request-row" data-request-id="145" data-user-name="Nora Abdullah" data-user-email="nora.a@example.com" data-user-mobile="+966504567890" data-service-type="psychological" data-status="completed" data-communication="Phone" data-creation-date="2026-02-01" data-assignment-date="2026-02-01" data-problem="Career stress and work-life balance. Need short-term coping strategies." data-files="">
                     <td><span class="req-id">#145</span></td>
                     <td><span class="req-user">Nora Abdullah</span></td>
-                    <td><span class="req-badge req-badge-specialty">Psychological</span></td>
-                    <td><span class="req-status req-status-completed">Closed</span></td>
+                    <td><span class="req-status req-status-completed">Completed</span></td>
                     <td><span class="req-date">01 Feb 2026</span></td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-request-action btn-view-request" data-action="view-request">
-                        <i class="bi bi-eye"></i> View
-                      </button>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-request-action btn-view-request" data-action="view-request">
+                          <i class="bi bi-eye"></i> View
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-update-status" data-action="update-status">
+                          <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
-                  <tr class="request-row" data-request-id="144" data-user-name="Omar Hassan" data-user-email="omar.h@example.com" data-user-mobile="+966505678901" data-service-type="real-estate" data-status="new" data-communication="WhatsApp" data-creation-date="2026-01-30" data-assignment-date="2026-01-31" data-problem="Property purchase contract and due diligence. First-time buyer." data-files="property_terms.pdf">
+                  <tr class="request-row" data-request-id="144" data-user-name="Omar Hassan" data-user-email="omar.h@example.com" data-user-mobile="+966505678901" data-service-type="real-estate" data-status="waiting" data-communication="WhatsApp" data-creation-date="2026-01-30" data-assignment-date="2026-01-31" data-problem="Property purchase contract and due diligence. First-time buyer." data-files="property_terms.pdf">
                     <td><span class="req-id">#144</span></td>
                     <td><span class="req-user">Omar Hassan</span></td>
-                    <td><span class="req-badge req-badge-specialty">Real estate</span></td>
-                    <td><span class="req-status req-status-pending">New</span></td>
+                    <td><span class="req-status req-status-pending">Waiting to reply</span></td>
                     <td><span class="req-date">31 Jan 2026</span></td>
                     <td class="text-end">
-                      <button type="button" class="btn btn-sm btn-request-action btn-view-request" data-action="view-request">
-                        <i class="bi bi-eye"></i> View
-                      </button>
+                      <div class="btn-group btn-group-sm" role="group">
+                        <button type="button" class="btn btn-request-action btn-view-request" data-action="view-request">
+                          <i class="bi bi-eye"></i> View
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-update-status" data-action="update-status">
+                          <i class="bi bi-arrow-repeat"></i>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
@@ -261,6 +270,35 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update status modal -->
+  <div class="modal fade" id="updateStatusModal" tabindex="-1" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content request-modal">
+        <div class="modal-header">
+          <h2 class="modal-title h6 mb-0" id="updateStatusModalLabel">Update request status</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted mb-2">Change the status of request <strong>#<span id="updateStatusRequestId">—</span></strong>.</p>
+          <div class="mb-3">
+            <label for="updateStatusSelect" class="form-label">New status</label>
+            <select id="updateStatusSelect" class="form-select">
+              <option value="waiting">Waiting to reply</option>
+              <option value="inprogress">In progress</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-request-consultation" id="updateStatusSaveBtn">
+            <i class="bi bi-check-circle me-1"></i> Save status
+          </button>
         </div>
       </div>
     </div>

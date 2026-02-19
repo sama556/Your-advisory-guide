@@ -48,49 +48,27 @@
         </nav>
 
         <h1 class="h2 mb-2">Submit consultation request</h1>
-       
 
-        <div id="requestTypeBadge" class="request-type-badge general">General request — admin will assign a consultant</div>
-        <div id="requestTypeBadgeTargeted" class="request-type-badge targeted d-none">Targeted request</div>
+        <div id="requestTypeBadge" class="request-type-badge general">
+          General request — admin will assign a consultant
+        </div>
 
         <div class="request-form-card" data-aos="fade-up">
           <form id="requestForm">
+            <!-- Fixed request configuration: one type only, not editable -->
             <input type="hidden" id="requestType" name="requestType" value="general">
             <input type="hidden" id="consultantId" name="consultantId" value="">
 
-            <div id="rowGeneral" class="row">
+            <div class="row">
               <div class="col-lg-6 mb-3">
                 <label class="form-label">Request type</label>
-                <select id="selectRequestType" class="form-select">
-                  <option value="general">General (admin assigns consultant)</option>
-                  <option value="targeted">Targeted (choose consultant)</option>
-                </select>
+                <input type="text" class="form-control" value="General (admin assigns consultant)" disabled>
               </div>
-              <div id="rowConsultant" class="col-lg-6 mb-3 d-none">
-                <label class="form-label">Consultant</label>
-                <select id="selectConsultant" class="form-select" name="consultant_id">
-                  <option value="">Select consultant</option>
-                  <option value="1">Dr. Ahmed Al-Rashid </option>
-                  <option value="2">Dr. Sara Mohammed </option>
-                  <option value="3">Khalid Al-Otaibi </option>
-                  <option value="4">Nora Al-Harbi </option>
-                  <option value="5">Dr. Omar Farouk</option>
-                  <option value="6">Layla Hassan </option>
-                </select>
+              <div class="col-lg-6 mb-3">
+                <label class="form-label" for="consultationTypeDisplay">Consultation type</label>
+                <input id="consultationTypeDisplay" type="text" class="form-control" value="Legal consultation" disabled>
+                <input id="consultationType" type="hidden" name="consultation_type" value="legal">
               </div>
-            </div>
-
-            <div class="mb-3">
-              <label class="form-label" for="consultationType">Consultation type <span class="text-danger">*</span></label>
-              <select id="consultationType" name="consultation_type" class="form-select" required>
-                <option value="">Select type</option>
-                <option value="legal">Legal</option>
-                <option value="medical">Medical</option>
-                <option value="real_estate">Real Estate</option>
-                <option value="educational">Educational</option>
-                <option value="psychological">Psychological</option>
-              </select>
-              <div class="invalid-feedback">Please select a consultation type.</div>
             </div>
 
             <div class="mb-3">
